@@ -26,6 +26,7 @@ namespace OpenYeeLightUI
 
         private void InitComponents()
         {
+            this.Text = $"{this.Text} - {Application.ProductVersion}";
             BrightnessLabel.Values.ExtraText = $"{BrightnessTrackbar.Value.ToString()}%";
             TemperatureLabel.Values.ExtraText = $"{TemperatureTrackBar.Value.ToString()}K";
             SmoothnessLabel.Values.ExtraText = $"{SmoothnessTrackBar.Value.ToString()}0MS";
