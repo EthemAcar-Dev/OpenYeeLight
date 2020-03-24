@@ -211,7 +211,7 @@ namespace OpenYeeLightUI
                 {
                     _ = Yeelight.TurnOnAsync(currentDevice.Device);
                 }
-                _ = Yeelight.SetBrightnessAsync(currentDevice.Device, BrightnessTrackbar.Value, Properties.Settings.Default.Smoothness * 10);
+                _ = Yeelight.SetBrightnessAsync(currentDevice.Device, BrightnessTrackbar.Value, SmoothnessTrackBar.Value * 10);
             }
             trackbarMouseDown = false;
             trackbarScrolling = false;
@@ -235,7 +235,7 @@ namespace OpenYeeLightUI
                 {
                     _ = Yeelight.TurnOnAsync(currentDevice.Device);
                 }
-                _ = Yeelight.SetColorTemperatureAsync(currentDevice.Device, TemperatureTrackBar.Value, Properties.Settings.Default.Smoothness * 10);
+                _ = Yeelight.SetColorTemperatureAsync(currentDevice.Device, TemperatureTrackBar.Value, SmoothnessTrackBar.Value * 10);
             }
             trackbarMouseDown = false;
             trackbarScrolling = false;
@@ -245,7 +245,7 @@ namespace OpenYeeLightUI
         {
             if (currentDevice.Device.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
             {
-                _ = Yeelight.TurnOnAsync(currentDevice.Device, Properties.Settings.Default.Smoothness * 10);
+                _ = Yeelight.TurnOnAsync(currentDevice.Device, SmoothnessTrackBar.Value * 10);
             }
             _ = Yeelight.SetRGBAsync(currentDevice.Device,
                 new RGB
@@ -253,7 +253,7 @@ namespace OpenYeeLightUI
                     Red = ColourWheel.Colour.R,
                     Green = ColourWheel.Colour.G,
                     Blue = ColourWheel.Colour.B
-                }, Properties.Settings.Default.Smoothness * 10);
+                }, SmoothnessTrackBar.Value * 10);
         }
     }
 }
