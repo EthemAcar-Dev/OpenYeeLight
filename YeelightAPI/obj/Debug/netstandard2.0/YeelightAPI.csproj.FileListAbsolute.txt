@@ -8,3 +8,13 @@ C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\netstandard2.0\Y
 C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.dll
 C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.xml
 C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.pdb
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.deps.json
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.dll
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.pdb
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.xml
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.csprojAssemblyReference.cache
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.AssemblyInfoInputs.cache
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.AssemblyInfo.cs
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.dll
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.xml
+C:\Users\Robot\Source\Repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\netstandard2.0\YeelightAPI.pdb
