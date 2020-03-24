@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using YeelightAPI;
 
-namespace YeelightAPIUI
+namespace OpenYeeLight
 {
     public static class Yeelight
     {

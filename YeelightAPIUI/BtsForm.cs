@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using YeelightAPI;
 
-namespace YeelightAPIUI
+namespace OpenYeeLight
 {
     public partial class BtsForm : KryptonForm
     {

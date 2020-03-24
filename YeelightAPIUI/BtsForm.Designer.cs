@@ -1,4 +1,4 @@
-﻿namespace YeelightAPIUI
+﻿namespace OpenYeeLight
 {
     partial class BtsForm
     {

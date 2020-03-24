@@ -1,4 +1,4 @@
-﻿namespace YeelightAPIUI
+﻿namespace OpenYeeLight
 {
     partial class MainForm
     {
@@ -100,7 +100,7 @@
             this.ActionsTab});
             this.Ribbon.SelectedTab = this.ActionsTab;
             this.Ribbon.ShowMinimizeButton = false;
-            this.Ribbon.Size = new System.Drawing.Size(918, 115);
+            this.Ribbon.Size = new System.Drawing.Size(918, 143);
             this.Ribbon.TabIndex = 1;
             // 
             // ActionsTab
@@ -129,19 +129,19 @@
             // 
             // TurnOnLight
             // 
-            this.TurnOnLight.ImageLarge = global::YeelightAPIUI.Properties.Resources._139;
+            this.TurnOnLight.ImageLarge = global::OpenYeeLight.Properties.Resources._139;
             this.TurnOnLight.TextLine1 = "Turn on";
             this.TurnOnLight.Click += new System.EventHandler(this.TurnOnLight_Click);
             // 
             // TurnOffLight
             // 
-            this.TurnOffLight.ImageLarge = global::YeelightAPIUI.Properties.Resources._140;
+            this.TurnOffLight.ImageLarge = global::OpenYeeLight.Properties.Resources._140;
             this.TurnOffLight.TextLine1 = "Turn off";
             this.TurnOffLight.Click += new System.EventHandler(this.TurnOffLight_Click);
             // 
             // ToggleLight
             // 
-            this.ToggleLight.ImageLarge = global::YeelightAPIUI.Properties.Resources._39;
+            this.ToggleLight.ImageLarge = global::OpenYeeLight.Properties.Resources._39;
             this.ToggleLight.TextLine1 = "Toggle";
             this.ToggleLight.Click += new System.EventHandler(this.ToggleLight_Click);
             // 
@@ -171,7 +171,7 @@
             // 
             // BTSLight
             // 
-            this.BTSLight.ImageLarge = global::YeelightAPIUI.Properties.Resources._135;
+            this.BTSLight.ImageLarge = global::OpenYeeLight.Properties.Resources._135;
             this.BTSLight.TextLine1 = "B, T & S";
             this.BTSLight.Click += new System.EventHandler(this.BTSLight_Click);
             // 
@@ -179,7 +179,7 @@
             // 
             this.SplitContainer.Cursor = System.Windows.Forms.Cursors.Default;
             this.SplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer.Location = new System.Drawing.Point(0, 115);
+            this.SplitContainer.Location = new System.Drawing.Point(0, 143);
             this.SplitContainer.Name = "SplitContainer";
             // 
             // SplitContainer.Panel1
@@ -193,7 +193,7 @@
             this.SplitContainer.Panel2.Controls.Add(this.SplitContainer2);
             this.SplitContainer.Panel2.Controls.Add(this.Panel1);
             this.SplitContainer.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.SplitContainer.Size = new System.Drawing.Size(918, 314);
+            this.SplitContainer.Size = new System.Drawing.Size(918, 286);
             this.SplitContainer.SplitterDistance = 169;
             this.SplitContainer.SplitterWidth = 10;
             this.SplitContainer.TabIndex = 3;
@@ -205,7 +205,7 @@
             this.LightsListBox.ItemStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.BreadCrumb;
             this.LightsListBox.Location = new System.Drawing.Point(0, 54);
             this.LightsListBox.Name = "LightsListBox";
-            this.LightsListBox.Size = new System.Drawing.Size(169, 260);
+            this.LightsListBox.Size = new System.Drawing.Size(169, 232);
             this.LightsListBox.TabIndex = 22;
             this.LightsListBox.SelectedIndexChanged += new System.EventHandler(this.LightsListBox_SelectedIndexChanged);
             // 
@@ -223,7 +223,7 @@
             // 
             // SelectAllLight
             // 
-            this.SelectAllLight.Image = global::YeelightAPIUI.Properties.Resources._523;
+            this.SelectAllLight.Image = global::OpenYeeLight.Properties.Resources._523;
             this.SelectAllLight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SelectAllLight.Name = "SelectAllLight";
             this.SelectAllLight.Size = new System.Drawing.Size(75, 22);
@@ -232,7 +232,7 @@
             // 
             // RefreshLight
             // 
-            this.RefreshLight.Image = global::YeelightAPIUI.Properties.Resources._556;
+            this.RefreshLight.Image = global::OpenYeeLight.Properties.Resources._556;
             this.RefreshLight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshLight.Name = "RefreshLight";
             this.RefreshLight.Size = new System.Drawing.Size(66, 22);
@@ -269,7 +269,7 @@
             this.SplitContainer2.Panel2.Controls.Add(this.SmoothnessLabel);
             this.SplitContainer2.Panel2.Controls.Add(this.SmoothnessTrackBar);
             this.SplitContainer2.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.SplitContainer2.Size = new System.Drawing.Size(739, 188);
+            this.SplitContainer2.Size = new System.Drawing.Size(739, 160);
             this.SplitContainer2.SplitterDistance = 159;
             this.SplitContainer2.TabIndex = 1;
             // 
@@ -279,7 +279,7 @@
             this.ColourWheel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ColourWheel.Location = new System.Drawing.Point(0, 0);
             this.ColourWheel.Name = "ColourWheel";
-            this.ColourWheel.Size = new System.Drawing.Size(159, 188);
+            this.ColourWheel.Size = new System.Drawing.Size(159, 160);
             this.ColourWheel.TabIndex = 5;
             this.ColourWheel.Click += new System.EventHandler(this.ColourWheel_Click);
             // 
@@ -298,7 +298,7 @@
             this.Panel2.Location = new System.Drawing.Point(0, 0);
             this.Panel2.Name = "Panel2";
             this.Panel2.PersistentColours = false;
-            this.Panel2.Size = new System.Drawing.Size(575, 125);
+            this.Panel2.Size = new System.Drawing.Size(575, 97);
             this.Panel2.TabIndex = 12;
             // 
             // BrightnessLabel
@@ -307,7 +307,7 @@
             this.BrightnessLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BrightnessLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
             this.BrightnessLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.BrightnessLabel.Location = new System.Drawing.Point(0, -1);
+            this.BrightnessLabel.Location = new System.Drawing.Point(0, -29);
             this.BrightnessLabel.Name = "BrightnessLabel";
             this.BrightnessLabel.Size = new System.Drawing.Size(575, 29);
             this.BrightnessLabel.TabIndex = 18;
@@ -318,7 +318,7 @@
             this.BrightnessTrackbar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BrightnessTrackbar.DrawBackground = true;
             this.BrightnessTrackbar.LargeChange = 0;
-            this.BrightnessTrackbar.Location = new System.Drawing.Point(0, 28);
+            this.BrightnessTrackbar.Location = new System.Drawing.Point(0, 0);
             this.BrightnessTrackbar.Maximum = 100;
             this.BrightnessTrackbar.Minimum = 1;
             this.BrightnessTrackbar.Name = "BrightnessTrackbar";
@@ -351,7 +351,7 @@
             this.TemperatureLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TemperatureLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
             this.TemperatureLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.TemperatureLabel.Location = new System.Drawing.Point(0, 62);
+            this.TemperatureLabel.Location = new System.Drawing.Point(0, 34);
             this.TemperatureLabel.Name = "TemperatureLabel";
             this.TemperatureLabel.Size = new System.Drawing.Size(575, 29);
             this.TemperatureLabel.TabIndex = 17;
@@ -362,7 +362,7 @@
             this.TemperatureTrackBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TemperatureTrackBar.DrawBackground = true;
             this.TemperatureTrackBar.LargeChange = 0;
-            this.TemperatureTrackBar.Location = new System.Drawing.Point(0, 91);
+            this.TemperatureTrackBar.Location = new System.Drawing.Point(0, 63);
             this.TemperatureTrackBar.Maximum = 6500;
             this.TemperatureTrackBar.Minimum = 1700;
             this.TemperatureTrackBar.Name = "TemperatureTrackBar";
@@ -396,7 +396,7 @@
             this.SmoothnessLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SmoothnessLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
             this.SmoothnessLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.SmoothnessLabel.Location = new System.Drawing.Point(0, 125);
+            this.SmoothnessLabel.Location = new System.Drawing.Point(0, 97);
             this.SmoothnessLabel.Name = "SmoothnessLabel";
             this.SmoothnessLabel.Size = new System.Drawing.Size(575, 29);
             this.SmoothnessLabel.TabIndex = 11;
@@ -407,7 +407,7 @@
             this.SmoothnessTrackBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SmoothnessTrackBar.DrawBackground = true;
             this.SmoothnessTrackBar.LargeChange = 0;
-            this.SmoothnessTrackBar.Location = new System.Drawing.Point(0, 154);
+            this.SmoothnessTrackBar.Location = new System.Drawing.Point(0, 126);
             this.SmoothnessTrackBar.Maximum = 100;
             this.SmoothnessTrackBar.Minimum = 1;
             this.SmoothnessTrackBar.Name = "SmoothnessTrackBar";
@@ -480,6 +480,7 @@
             this.DetailsText.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.DetailsText.StateActive.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.DetailsText.StateActive.Content.Color1 = System.Drawing.Color.White;
             this.DetailsText.StateActive.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Inherit;
             this.DetailsText.StateNormal.Back.Color1 = System.Drawing.Color.Gray;
@@ -496,9 +497,11 @@
             // 
             // SaveLightName
             // 
-            this.SaveLightName.Image = global::YeelightAPIUI.Properties.Resources._967;
+            this.SaveLightName.Image = global::OpenYeeLight.Properties.Resources._967;
             this.SaveLightName.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
             this.SaveLightName.Text = "Save";
+            this.SaveLightName.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+            this.SaveLightName.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Generic;
             this.SaveLightName.UniqueName = "17de1e3bb09e4fc9b0c4b9f05d724c7b";
             this.SaveLightName.Click += new System.EventHandler(this.SaveLightName_Click);
             // 
@@ -531,7 +534,7 @@
             this.MaximumSize = new System.Drawing.Size(934, 468);
             this.MinimumSize = new System.Drawing.Size(934, 468);
             this.Name = "MainForm";
-            this.Text = "Yeelight UI";
+            this.Text = "OpenYeeLight";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer.Panel1)).EndInit();

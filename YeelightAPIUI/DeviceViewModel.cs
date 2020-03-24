@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YeelightAPI;
 
-namespace YeelightAPIUI
+namespace OpenYeeLight
 {
     public class DeviceViewModel
     {
