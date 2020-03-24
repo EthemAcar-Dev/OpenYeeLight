@@ -1,0 +1,2456 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YeelightAPI</name>
+    </assembly>
+    <members>
+        <member name="T:YeelightAPI.Core.CommandResultHandler`1">
+            <summary>
+            Handler for CommandResult
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:YeelightAPI.Core.CommandResultHandler`1._cts">
+            <summary>
+            Cancellation Token Source
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.CommandResultHandler`1._tcs">
+            <summary>
+            Task Completion Source
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Core.CommandResultHandler`1.ResultType">
+            <summary>
+            Type of the result
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Core.CommandResultHandler`1.Task">
+            <summary>
+            Task object
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.CommandResultHandler`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.CommandResultHandler`1.SetError(YeelightAPI.Models.CommandResult.CommandErrorResult)">
+            <summary>
+            Sets the error
+            </summary>
+            <param name="commandResultError"></param>
+        </member>
+        <member name="M:YeelightAPI.Core.CommandResultHandler`1.SetResult(YeelightAPI.Models.CommandResult)">
+            <summary>
+            Sets the result
+            </summary>
+            <param name="commandResult"></param>
+        </member>
+        <member name="M:YeelightAPI.Core.CommandResultHandler`1.TrySetCanceled">
+            <summary>
+            Try to cancel
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Core.Constants">
+            <summary>
+            Common
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.DefaultPort">
+            <summary>
+            Default port value
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.DefaultTimeout">
+            <summary>
+            Default Timeout when waiting for a response from the device
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.LineSeparator">
+            <summary>
+            Line separator
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.MinimumFlowExpressionDuration">
+            <summary>
+            Minimum Flow duration
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.MinimumSmoothDuration">
+            <summary>
+            Minimum Smooth value
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.Off">
+            <summary>
+            "Off" parameter to change power state
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.On">
+            <summary>
+            "On" parameter to change power state
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Core.Constants.DeviceSerializerSettings">
+            <summary>
+            Serializer settings
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Core.ICommandResultHandler">
+            <summary>
+            Handler interface for CommandResult
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Core.ICommandResultHandler.ResultType">
+            <summary>
+            Type of the result
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.ICommandResultHandler.SetError(YeelightAPI.Models.CommandResult.CommandErrorResult)">
+            <summary>
+            Sets the error
+            </summary>
+            <param name="commandResultError"></param>
+        </member>
+        <member name="M:YeelightAPI.Core.ICommandResultHandler.SetResult(YeelightAPI.Models.CommandResult)">
+            <summary>
+            Sets the result
+            </summary>
+            <param name="commandResult"></param>
+        </member>
+        <member name="M:YeelightAPI.Core.ICommandResultHandler.TrySetCanceled">
+            <summary>
+            Try to cancel
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Core.PropertiesDictionaryConverter">
+            <summary>
+            custom converter for Dictionaries with PROPERTIES as key
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.PropertiesDictionaryConverter.CanConvert(System.Type)">
+            <summary>
+            Can convert
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Core.PropertiesDictionaryConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Read from JSON
+            </summary>
+            <param name="reader"></param>
+            <param name="objectType"></param>
+            <param name="existingValue"></param>
+            <param name="serializer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Core.PropertiesDictionaryConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Write to JSON
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="serializer"></param>
+        </member>
+        <member name="T:YeelightAPI.Core.PropertiesExtensions">
+            <summary>
+            Extensions for PROPERTIES enum
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.PropertiesExtensions.GetRealNames(YeelightAPI.Models.PROPERTIES)">
+            <summary>
+            Get the real name of the properties
+            </summary>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Core.RealNameAttribute">
+            <summary>
+            Attribute to set the real name of a Yeelight Enum
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Core.RealNameAttributeExtension">
+            <summary>
+            Extensions for RealNameAttribute
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.RealNameAttributeExtension.GetRealName(System.Enum)">
+            <summary>
+            Retreive the RealNameAttribute of an enum value
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Core.RealNameAttributeExtension.TryParseByRealName``1(System.String,``0@)">
+            <summary>
+            Gets the enum value with the given <see cref="T:YeelightAPI.Core.RealNameAttribute"/>.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="realName">The name of the <see cref="T:YeelightAPI.Core.RealNameAttribute"/>.</param>
+            <param name="result">The enum value.</param>
+            <returns><see langword="true"/> if a matching enum value was found; otherwise <see langword="false"/>.</returns>
+        </member>
+        <member name="T:YeelightAPI.Core.ColorHelper">
+            <summary>
+            Helper for colors
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.ColorHelper.ComputeRGBColor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Compute a RGB color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Core.TcpClientExtensions">
+            <summary>
+            Extensions for TcpClient
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Core.TcpClientExtensions.IsConnected(System.Net.Sockets.TcpClient)">
+            <summary>
+            Returns a value to indicate if the Client is connected or not
+            </summary>
+            <param name="tcpClient"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Device">
+            <summary>
+            Yeelight Device
+            </summary>
+            <summary>
+            Yeelight Device : IBackgroundDeviceController implementation
+            </summary>
+            <summary>
+            Yeelight Device : IDeviceController implementation
+            </summary>
+            <summary>
+            Yeelight Device : IDeviceReader implementation
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Device._currentCommandResults">
+            <summary>
+            Dictionary of results
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Device._syncLock">
+            <summary>
+            lock
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Device._uniqueId">
+            <summary>
+            The unique id to send when executing a command.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Device._tcpClient">
+            <summary>
+            TCP client used to communicate with the device
+            </summary>
+        </member>
+        <member name="E:YeelightAPI.Device.OnError">
+            <summary>
+            Notification Received event
+            </summary>
+        </member>
+        <member name="E:YeelightAPI.Device.OnNotificationReceived">
+            <summary>
+            Notification Received event
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Device.ErrorEventHandler">
+            <summary>
+            Notification Received event handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:YeelightAPI.Device.NotificationReceivedEventHandler">
+            <summary>
+            Notification Received event handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:YeelightAPI.Device.Hostname">
+            <summary>
+            HostName
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Device.Id">
+            <summary>
+            The ID.
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Device.IsConnected">
+            <summary>
+            Gets a value indicating if the connection to Device is established
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Device.Model">
+            <summary>
+            The model.
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Device.Port">
+            <summary>
+            Port number
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Device.#ctor(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Constructor with a hostname and (optionally) a port number
+            </summary>
+            <param name="hostname"></param>
+            <param name="port"></param>
+            <param name="autoConnect"></param>
+        </member>
+        <member name="F:YeelightAPI.Device.FirmwareVersion">
+            <summary>
+            Firmware version
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Device.Properties">
+            <summary>
+            List of device properties
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Device.SupportedOperations">
+            <summary>
+            List of supported operations
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Device.Name">
+            <summary>
+            Name of the device
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Device.Item(YeelightAPI.Models.PROPERTIES)">
+            <summary>
+            Access property from its enum value
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YeelightAPI.Device.Item(System.String)">
+            <summary>
+            Access property from its name
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.Dispose">
+            <summary>
+            Dispose the device
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Device.ExecuteCommand(YeelightAPI.Models.METHODS,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Execute a command
+            </summary>
+            <param name="method"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:YeelightAPI.Device.ExecuteCommandWithResponse``1(YeelightAPI.Models.METHODS,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Execute a command and waits for a response
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="method"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.ToString">
+            <summary>
+            Readable value for the device
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.ExecuteCommand(YeelightAPI.Models.METHODS,System.Int32,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Execute a command
+            </summary>
+            <param name="method"></param>
+            <param name="id"></param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:YeelightAPI.Device.ExecuteCommandWithResponse``1(YeelightAPI.Models.METHODS,System.Int32,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Execute a command and waits for a response
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="method"></param>
+            <param name="id"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.HandlePercentValue(System.Collections.Generic.List{System.Object}@,System.Int32)">
+            <summary>
+            Generate valid parameters for percent values
+            </summary>
+            <param name="parameters"></param>
+            <param name="percent"></param>
+        </member>
+        <member name="M:YeelightAPI.Device.HandleSmoothValue(System.Collections.Generic.List{System.Object}@,System.Nullable{System.Int32})">
+            <summary>
+            Generate valid parameters for smooth values
+            </summary>
+            <param name="parameters"></param>
+            <param name="smooth"></param>
+        </member>
+        <member name="M:YeelightAPI.Device.IsMethodSupported(YeelightAPI.Models.METHODS)">
+            <summary>
+            Check if the method is supported by the device
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.UnsafeExecuteCommandWithResponse``1(YeelightAPI.Models.METHODS,System.Int32,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Execute a command and waits for a response (Unsafe because of Task Cancelation)
+            </summary>
+            <param name="method"></param>
+            <param name="id"></param>
+            <param name="parameters"></param>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.Watch">
+            <summary>
+            Watch for device responses and notifications
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.GetUniqueIdForCommand">
+            <summary>
+            Get a thread-safe unique Id to pass to the API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundAdjustBright(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the brightness
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundAdjustColor(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundAdjustColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundFlow">
+            <summary>
+            Initiate a new Background Color Flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetAdjust(YeelightAPI.Models.Adjust.AdjustAction,YeelightAPI.Models.Adjust.AdjustProperty)">
+            <summary>
+            Adjusts the background light state
+            </summary>
+            <param name="action"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetBrightness(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the brightness
+            </summary>
+            <param name="value"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the background temperature
+            </summary>
+            <param name="temperature"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetDefault">
+            <summary>
+            Save the background current state as the default one
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetHSVColor(System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the background light HSV color
+            </summary>
+            <param name="hue"></param>
+            <param name="sat"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetPower(System.Boolean,System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Set the power of the device
+            </summary>
+            <param name="state"></param>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetRGBColor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            set the RGB color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundSetScene(YeelightAPI.Models.Scene.Scene)">
+            <summary>
+            Sets the background Scene
+            </summary>
+            <param name="scene"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundStartColorFlow(YeelightAPI.Models.ColorFlow.ColorFlow)">
+            <summary>
+            Starts a background color flow
+            </summary>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundStopColorFlow">
+            <summary>
+            Stops the background color flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundToggle">
+            <summary>
+            Toggle device
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundTurnOff(System.Nullable{System.Int32})">
+            <summary>
+            Turn-Off the device background light
+            </summary>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.BackgroundTurnOn(System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Turn-On the device background light
+            </summary>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.DevToggle">
+            <summary>
+            Toggle Both Background and normal light
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.AdjustBright(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the brightness
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.AdjustColor(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.AdjustColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.Connect">
+            <summary>
+            Connects to a device asynchronously
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.CronAdd(System.Int32,YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Add a cron job
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.CronDelete(YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Delete a cron job
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.Disconnect">
+            <summary>
+            Disconnect the current device
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.Flow">
+            <summary>
+            Initiate a new Color Flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetAdjust(YeelightAPI.Models.Adjust.AdjustAction,YeelightAPI.Models.Adjust.AdjustProperty)">
+            <summary>
+            Adjusts the state of the device
+            </summary>
+            <param name="action"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetBrightness(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Change the device brightness asynchronously
+            </summary>
+            <param name="value"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Change Color Temperature asynchronously
+            </summary>
+            <param name="temperature"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetDefault">
+            <summary>
+            Set the current state as the default one
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetHSVColor(System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Change HSV color asynchronously
+            </summary>
+            <param name="hue"></param>
+            <param name="sat"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetPower(System.Boolean,System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Set the device power state asynchronously
+            </summary>
+            <param name="state"></param>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetRGBColor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Change the device RGB color asynchronously
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetScene(YeelightAPI.Models.Scene.Scene)">
+            <summary>
+            Set a Scene
+            </summary>
+            <param name="scene"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.StartColorFlow(YeelightAPI.Models.ColorFlow.ColorFlow)">
+            <summary>
+            Starts a color flow asynchronously
+            </summary>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.StartMusicMode(System.String,System.Int32)">
+            <summary>
+            Starts the music mode
+            </summary>
+            <param name="hostName"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.StopColorFlow">
+            <summary>
+            Stops the color flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.StopMusicMode">
+            <summary>
+            Stops the music mode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.Toggle">
+            <summary>
+            Toggle the device power asynchronously
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.TurnOff(System.Nullable{System.Int32})">
+            <summary>
+            Turn-Off the device
+            </summary>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.TurnOn(System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Turn-On the device
+            </summary>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.CronGet(YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Get a cron JOB
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.GetAllProps">
+            <summary>
+            Get all the properties asynchronously
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.GetProp(YeelightAPI.Models.PROPERTIES)">
+            <summary>
+            Get a single property value asynchronously
+            </summary>
+            <param name="prop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.GetProps(YeelightAPI.Models.PROPERTIES)">
+            <summary>
+            Get multiple properties asynchronously
+            </summary>
+            <param name="props"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Device.SetName(System.String)">
+            <summary>
+            Set the name of the device
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.DeviceGroup">
+            <summary>
+            Group of Yeelight Devices
+            </summary>
+            <summary>
+            Group of Yeelight Devices : IBackgroundDeviceController implementation
+            </summary>
+            <summary>
+            Group of Yeelight Devices : IDeviceController implementation
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.DeviceGroup.Name">
+            <summary>
+            Name of the group
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.#ctor(System.String)">
+            <summary>
+            Constructor with one device
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.#ctor(YeelightAPI.Device,System.String)">
+            <summary>
+            Constructor with one device
+            </summary>
+            <param name="device"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.#ctor(YeelightAPI.Device[])">
+            <summary>
+            Constructor with devices as params
+            </summary>
+            <param name="devices"></param>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.#ctor(System.Collections.Generic.IEnumerable{YeelightAPI.Device},System.String)">
+            <summary>
+            Constructor with a list (IEnumerable) of devices
+            </summary>
+            <param name="devices"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.Dispose">
+            <summary>
+            Dispose the devices
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.Process(System.Func{YeelightAPI.Device,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Execute code for all the devices
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundAdjustBright(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the brightness
+            </summary>
+            <param name="percent"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundAdjustColor(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color
+            </summary>
+            <param name="percent"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundAdjustColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+            <param name="percent"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundFlow">
+            <summary>
+            Initiate a new background Color Flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetAdjust(YeelightAPI.Models.Adjust.AdjustAction,YeelightAPI.Models.Adjust.AdjustProperty)">
+            <summary>
+            Adjusts background light
+            </summary>
+            <param name="action"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetBrightness(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set background light color
+            </summary>
+            <param name="value"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set background light temperature
+            </summary>
+            <param name="temperature"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetDefault">
+            <summary>
+            Set the background current state as the default one
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetHSVColor(System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set background light HSV color
+            </summary>
+            <param name="hue"></param>
+            <param name="sat"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetPower(System.Boolean,System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Set background light power
+            </summary>
+            <param name="state"></param>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetRGBColor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set background light RGB color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundSetScene(YeelightAPI.Models.Scene.Scene)">
+            <summary>
+            Set background scene
+            </summary>
+            <param name="scene"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundStartColorFlow(YeelightAPI.Models.ColorFlow.ColorFlow)">
+            <summary>
+            Starts a color flow
+            </summary>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundStopColorFlow">
+            <summary>
+            Stops the color flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundToggle">
+            <summary>
+            Toggle background light
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundTurnOff(System.Nullable{System.Int32})">
+            <summary>
+            Turn-Off the devices background light
+            </summary>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.BackgroundTurnOn(System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Turn-On the devices background light
+            </summary>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.DevToggle">
+            <summary>
+            Toggle Both Background and normal light
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.AdjustBright(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the brightness
+            </summary>
+            <param name="percent"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.AdjustColor(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color
+            </summary>
+            <param name="percent"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.AdjustColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+            <param name="percent"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.Connect">
+            <summary>
+            Connect all the devices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.CronAdd(System.Int32,YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Add a cron task for all devices
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.CronDelete(YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Delete a cron task for all devices
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.Disconnect">
+            <summary>
+            Disconnect all the devices
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.Flow">
+            <summary>
+            Initiate a new Color Flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetAdjust(YeelightAPI.Models.Adjust.AdjustAction,YeelightAPI.Models.Adjust.AdjustProperty)">
+            <summary>
+            Adjusts the state of all the devices
+            </summary>
+            <param name="action"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetBrightness(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the brightness for all the devices
+            </summary>
+            <param name="value"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the color temperature for all the devices
+            </summary>
+            <param name="temperature"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetDefault">
+            <summary>
+            Set the current state as the default one
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetHSVColor(System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Change HSV color asynchronously for all devices
+            </summary>
+            <param name="hue"></param>
+            <param name="sat"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetPower(System.Boolean,System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Set the power for all the devices
+            </summary>
+            <param name="state"></param>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetRGBColor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the RGB Color for all the devices
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.SetScene(YeelightAPI.Models.Scene.Scene)">
+             <summary>
+            
+             </summary>
+             <param name="scene"></param>
+             <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.StartColorFlow(YeelightAPI.Models.ColorFlow.ColorFlow)">
+            <summary>
+            Starts a color flow for all devices
+            </summary>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.StartMusicMode(System.String,System.Int32)">
+            <summary>
+            starts the music mode for all devices
+            </summary>
+            <param name="hostName"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.StopColorFlow">
+            <summary>
+            stops the color flow of all devices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.StopMusicMode">
+            <summary>
+            stops the music mode for all devices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.Toggle">
+            <summary>
+            Toggle the power for all the devices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.TurnOff(System.Nullable{System.Int32})">
+            <summary>
+            Turn-Off the device
+            </summary>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceGroup.TurnOn(System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Turn-On the device
+            </summary>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.DeviceLocator">
+            <summary>
+            Finds devices through LAN
+            </summary>
+        </member>
+        <member name="E:YeelightAPI.DeviceLocator.OnDeviceFound">
+            <summary>
+            Notification Received event
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.DeviceLocator.DeviceFoundEventHandler">
+            <summary>
+            Notification Received event handler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:YeelightAPI.DeviceLocator.Discover(System.Net.NetworkInformation.NetworkInterface)">
+            <summary>
+            Discover devices in a specific Network Interface
+            </summary>
+            <param name="preferedInterface"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceLocator.Discover">
+            <summary>
+            Discover devices in LAN
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceLocator.CreateDiscoverTasks(System.Net.NetworkInformation.NetworkInterface)">
+            <summary>
+            Create Discovery tasks for a specific Network Interface
+            </summary>
+            <param name="netInterface"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.DeviceLocator.GetDeviceInformationsFromSsdpMessage(System.String)">
+            <summary>
+            Gets the informations from a raw SSDP message (host, port)
+            </summary>
+            <param name="ssdpMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Events.DeviceFoundEventArgs">
+            <summary>
+            Device found event argument
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Events.DeviceFoundEventArgs.Device">
+            <summary>
+            Notification Result
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Events.DeviceFoundEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Events.DeviceFoundEventArgs.#ctor(YeelightAPI.Device)">
+            <summary>
+            Constructor with notification result
+            </summary>
+            <param name="device"></param>
+        </member>
+        <member name="T:YeelightAPI.NotificationReceivedEventArgs">
+            <summary>
+            Notification event Argument
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.NotificationReceivedEventArgs.Result">
+            <summary>
+            Notification Result
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.NotificationReceivedEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.NotificationReceivedEventArgs.#ctor(YeelightAPI.Models.NotificationResult)">
+            <summary>
+            Constructor with notification result
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="T:YeelightAPI.IBackgroundDeviceController">
+            <summary>
+            Descriptor for Devices Background Operations
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundAdjustBright(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the brightness
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundAdjustColor(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundAdjustColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundFlow">
+            <summary>
+            Initiate a new Color Flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetAdjust(YeelightAPI.Models.Adjust.AdjustAction,YeelightAPI.Models.Adjust.AdjustProperty)">
+            <summary>
+            Adjust settings
+            </summary>
+            <param name="action"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetBrightness(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the brightness
+            </summary>
+            <param name="value"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the color temperature
+            </summary>
+            <param name="temperature"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetDefault">
+            <summary>
+            Save the current state as default
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetHSVColor(System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the HSV color
+            </summary>
+            <param name="hue"></param>
+            <param name="sat"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetPower(System.Boolean,System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Set Power
+            </summary>
+            <param name="state"></param>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetRGBColor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set RGB color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundSetScene(YeelightAPI.Models.Scene.Scene)">
+            <summary>
+            Set a scene
+            </summary>
+            <param name="scene"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundStartColorFlow(YeelightAPI.Models.ColorFlow.ColorFlow)">
+            <summary>
+            Start a color flow
+            </summary>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundStopColorFlow">
+            <summary>
+            Stop the current color flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundToggle">
+            <summary>
+            Toggle the device power state
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundTurnOff(System.Nullable{System.Int32})">
+            <summary>
+            Turn-Off the device
+            </summary>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.BackgroundTurnOn(System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Turn-On the device
+            </summary>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IBackgroundDeviceController.DevToggle">
+            <summary>
+            Toggle both Background and classical power state
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.IDeviceController">
+            <summary>
+            Descriptor for Devices operations
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.AdjustBright(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the brightness
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.AdjustColor(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.AdjustColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+            <param name="percent"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.Connect">
+            <summary>
+            Establish a connection to the device
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.CronAdd(System.Int32,YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Add a cron task
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.CronDelete(YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Delete a cron task
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.Disconnect">
+            <summary>
+            Disconnect the device
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.Flow">
+            <summary>
+            Initiate a new Color Flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetAdjust(YeelightAPI.Models.Adjust.AdjustAction,YeelightAPI.Models.Adjust.AdjustProperty)">
+            <summary>
+            Adjust settings
+            </summary>
+            <param name="action"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetBrightness(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the brightness
+            </summary>
+            <param name="value"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetColorTemperature(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the color temperature
+            </summary>
+            <param name="temperature"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetDefault">
+            <summary>
+            Save the current state as default
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetHSVColor(System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set the HSV color
+            </summary>
+            <param name="hue"></param>
+            <param name="sat"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetPower(System.Boolean,System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Set Power
+            </summary>
+            <param name="state"></param>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetRGBColor(System.Int32,System.Int32,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Set RGB color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.SetScene(YeelightAPI.Models.Scene.Scene)">
+            <summary>
+            Set a scene
+            </summary>
+            <param name="scene"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.StartColorFlow(YeelightAPI.Models.ColorFlow.ColorFlow)">
+            <summary>
+            Start a color flow
+            </summary>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.StartMusicMode(System.String,System.Int32)">
+            <summary>
+            Start the music mode
+            </summary>
+            <param name="hostName"></param>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.StopColorFlow">
+            <summary>
+            Stop the current color flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.StopMusicMode">
+            <summary>
+            Stop the music mode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.Toggle">
+            <summary>
+            Toggle the power state
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.TurnOff(System.Nullable{System.Int32})">
+            <summary>
+            Turn-Off the device
+            </summary>
+            <param name="smooth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceController.TurnOn(System.Nullable{System.Int32},YeelightAPI.Models.PowerOnMode)">
+            <summary>
+            Turn-On the device
+            </summary>
+            <param name="smooth"></param>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.IDeviceReader">
+            <summary>
+            Descriptor for Device Reading operations
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.IDeviceReader.CronGet(YeelightAPI.Models.Cron.CronType)">
+            <summary>
+            Get a cron task
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceReader.GetAllProps">
+            <summary>
+            Get all properties values
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceReader.GetProp(YeelightAPI.Models.PROPERTIES)">
+            <summary>
+            Get a single property value
+            </summary>
+            <param name="prop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceReader.GetProps(YeelightAPI.Models.PROPERTIES)">
+            <summary>
+            Get multiple properties values
+            </summary>
+            <param name="props"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.IDeviceReader.SetName(System.String)">
+            <summary>
+            Set the name of the device
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Models.Adjust.AdjustAction">
+            <summary>
+            Actions for a adjust command
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Adjust.AdjustAction.increase">
+            <summary>
+            Increase the value
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Adjust.AdjustAction.decrease">
+            <summary>
+            Decrease the value
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Adjust.AdjustAction.circle">
+            <summary>
+            Increase the value and go back to 1 if the maximum value is reached
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.Adjust.AdjustProperty">
+            <summary>
+            Property to adjust in an adjust command
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Adjust.AdjustProperty.bright">
+            <summary>
+            Brightness
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Adjust.AdjustProperty.ct">
+            <summary>
+            Color temperature
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Adjust.AdjustProperty.color">
+            <summary>
+            Color
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.ColorFlow.ColorFlow">
+            <summary>
+            Color flow
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.ColorFlow.ColorFlow.EndAction">
+            <summary>
+            Action taken when the flow stops
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.ColorFlow.ColorFlow.RepetitionCount">
+            <summary>
+            Number of repetitions
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.ColorFlow.ColorFlow.#ctor(System.Int32,YeelightAPI.Models.ColorFlow.ColorFlowEndAction,YeelightAPI.Models.ColorFlow.ColorFlowExpression[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="repetitionCount"></param>
+            <param name="endAction"></param>
+            <param name="expressions"></param>
+        </member>
+        <member name="M:YeelightAPI.Models.ColorFlow.ColorFlow.#ctor(System.Int32,YeelightAPI.Models.ColorFlow.ColorFlowEndAction,System.Collections.Generic.IEnumerable{YeelightAPI.Models.ColorFlow.ColorFlowExpression})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="repetitionCount"></param>
+            <param name="endAction"></param>
+            <param name="expressions"></param>
+        </member>
+        <member name="M:YeelightAPI.Models.ColorFlow.ColorFlow.GetColorFlowExpression">
+            <summary>
+            Returns the flow expression
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Models.ColorFlow.ColorFlowEndAction">
+            <summary>
+            Action taken after the flow is stopped
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.ColorFlow.ColorFlowEndAction.Restore">
+            <summary>
+            Restore to the previous state
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.ColorFlow.ColorFlowEndAction.Keep">
+            <summary>
+            Keep the last state of the flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.ColorFlow.ColorFlowEndAction.TurnOff">
+            <summary>
+            Turn the device off
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.ColorFlow.ColorFlowExpression">
+            <summary>
+            Color flow expression
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.ColorFlow.ColorFlowExpression.Brightness">
+            <summary>
+            Brightness (-1 or 1~100)
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.ColorFlow.ColorFlowExpression.Duration">
+            <summary>
+            Duration of the effect
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.ColorFlow.ColorFlowExpression.Mode">
+            <summary>
+            Mode
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.ColorFlow.ColorFlowExpression.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.ColorFlow.ColorFlowExpression.GetFlow">
+            <summary>
+            returns the flow expression
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Models.ColorFlow.ColorFlowMode">
+            <summary>
+            Mode of the color flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.ColorFlow.ColorFlowMode.Color">
+            <summary>
+            RGB color
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.ColorFlow.ColorFlowMode.ColorTemperature">
+            <summary>
+            Color temperature
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.ColorFlow.ColorFlowMode.Sleep">
+            <summary>
+            Sleep (timer)
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.ColorFlow.ColorFlowRGBExpression">
+            <summary>
+            Color flow to change RGB color
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.ColorFlow.ColorFlowRGBExpression.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="duration"></param>
+            <param name="brightness"></param>
+        </member>
+        <member name="T:YeelightAPI.Models.ColorFlow.ColorFlowSleepExpression">
+            <summary>
+            Color flow to sleep
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.ColorFlow.ColorFlowSleepExpression.#ctor(System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="duration"></param>
+        </member>
+        <member name="T:YeelightAPI.Models.ColorFlow.ColorFlowTemperatureExpression">
+            <summary>
+            Color flow to change the color temperature
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.ColorFlow.ColorFlowTemperatureExpression.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="temperature"></param>
+            <param name="duration"></param>
+            <param name="brightness"></param>
+        </member>
+        <member name="T:YeelightAPI.Models.Command">
+            <summary>
+            Command used to send to the bulb
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.Command.Id">
+            <summary>
+            Request Id
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.Command.Method">
+            <summary>
+            Method to call
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.Command.Params">
+            <summary>
+            Parameters
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.CommandResultExtensions">
+            <summary>
+            Extensions for CommandResult
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.CommandResultExtensions.IsOk(YeelightAPI.Models.CommandResult{System.Collections.Generic.List{System.String}})">
+            <summary>
+            Determine if the result is a classical OK result ({"id":1, "result":["ok"]})
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Models.CommandResult">
+            <summary>
+            Default command result
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.CommandResult.Error">
+            <summary>
+            Error, null if command is successful
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.CommandResult.Id">
+            <summary>
+            Request Id (mirrored from the sent request)
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.CommandResult.CommandErrorResult">
+            <summary>
+            Error model
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.CommandResult.CommandErrorResult.Code">
+            <summary>
+            Error code
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.CommandResult.CommandErrorResult.Message">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.CommandResult.CommandErrorResult.ToString">
+            <summary>
+            ToString override
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Models.CommandResult`1">
+            <summary>
+            Result received after a Command has been sent
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.CommandResult`1.Result">
+            <summary>
+            Result
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.Cron.CronResult">
+            <summary>
+            Cron result
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.Cron.CronResult.Delay">
+            <summary>
+            ???
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.Cron.CronResult.Mix">
+            <summary>
+            ???
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.Cron.CronResult.Type">
+            <summary>
+            Type of the cron task
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.Cron.CronType">
+            <summary>
+            Cron Type
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Cron.CronType.PowerOff">
+            <summary>
+            Power off
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.FluentFlow">
+            <summary>
+            Fluent-syntax Color FLow
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.#ctor(YeelightAPI.IDeviceController,System.Func{YeelightAPI.Models.ColorFlow.ColorFlow,System.Threading.Tasks.Task{System.Boolean}},System.Func{System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="device"></param>
+            <param name="start"></param>
+            <param name="stop"></param>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.During(System.Int32)">
+            <summary>
+            Set the duration of the previous action
+            </summary>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.Play(YeelightAPI.Models.ColorFlow.ColorFlowEndAction,System.Int32)">
+            <summary>
+            Play the color flow
+            </summary>
+            <param name="endAction"></param>
+            <param name="repetition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.PlayAfter(System.Int32,YeelightAPI.Models.ColorFlow.ColorFlowEndAction,System.Int32)">
+            <summary>
+            Play the color flow after the specified delay
+            </summary>
+            <param name="millisecondsDelay"></param>
+            <param name="endAction"></param>
+            <param name="repetition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.Reset">
+            <summary>
+            Reset the flow expressions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.RgbColor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set a RGB Color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="brightness"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.Sleep(System.Int32)">
+            <summary>
+            Sleep
+            </summary>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.Stop">
+            <summary>
+            Stop the color flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.StopAfter(System.Int32)">
+            <summary>
+            Stop the color flow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.Temperature(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set the color temperature
+            </summary>
+            <param name="temperature"></param>
+            <param name="brightness"></param>
+            <param name="duration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.FluentFlow.CheckExpressions">
+            <summary>
+            Throw an exception if the expressions list is empty
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.METHODS">
+            <summary>
+            Available Methodss
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.GetProp">
+            <summary>
+            Retrieve current property of smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetColorTemperature">
+            <summary>
+            Change the color temperature of a smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetRGBColor">
+            <summary>
+            Change the color of a smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetHSVColor">
+            <summary>
+            Change the color of a smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBrightness">
+            <summary>
+            Change the brightness of a smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetPower">
+            <summary>
+            Switch on or off the smart LED (software managed on/off)
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.Toggle">
+            <summary>
+            Toggle the smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetDefault">
+            <summary>
+            Save current state of smart LED in persistent
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.StartColorFlow">
+            <summary>
+            Start a color flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.StopColorFlow">
+            <summary>
+            Stop a running color flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetScene">
+            <summary>
+            Set the smart LED directly to specified state
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.AddCron">
+            <summary>
+            Start a timer job on the smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.GetCron">
+            <summary>
+            Retrieve the setting of the current cron job of the specified type
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.DeleteCron">
+            <summary>
+            Stop the specified cron job
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetAdjust">
+            <summary>
+            Change brightness, CT or color of a smart LED without knowing the current value, it's main used by controllers
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetMusicMode">
+            <summary>
+            Start or stop music mode on a device. Under music mode, no property will be reported and no message quota is checked
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetName">
+            <summary>
+            Name the device. The name will be stored on the device and reported in discovering response. User can also read the name through "get_prop"
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundLightRGBColor">
+            <summary>
+            Change the background color of a smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundLightHSVColor">
+            <summary>
+            Change the background color of a smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundColorTemperature">
+            <summary>
+            Change the background color temperature of a smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.StartBackgroundLightColorFlow">
+            <summary>
+            Start a background color flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.StopBackgroundLightColorFlow">
+            <summary>
+            Stop a running background color flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundLightScene">
+            <summary>
+            Set the background smart LED directly to specified state
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundLightDefault">
+            <summary>
+            Save current state of background smart LED in persistent
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundLightPower">
+            <summary>
+            Switch on or off the background smart LED (software managed on/off)
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundLightBrightness">
+            <summary>
+            Change the brightness of a background smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.SetBackgroundLightAdjust">
+            <summary>
+            Change brightness, CT or color of a background smart LED without knowing the current value, it's main used by controllers
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.ToggleBackgroundLight">
+            <summary>
+            Toggle the background smart LED
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.ToggleDev">
+            <summary>
+            Toggle the main light and background light at the same time
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.AdjustBright">
+            <summary>
+            Adjusts the brightness
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.AdjustColorTemperature">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.AdjustColor">
+            <summary>
+            Adjusts the color
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.BackgroundAdjustBright">
+            <summary>
+            Adjusts the brightness
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.BackgroundAdjustColorTemperature">
+            <summary>
+            Adjusts the color temperature
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.METHODS.BackgroundAdjustColor">
+            <summary>
+            Adjusts the color
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.MODEL">
+            <summary>
+            Available product models.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.Unknown">
+            <summary>
+            Unknown model.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.Mono">
+            <summary>
+            Mono device, supports brightness adjustment only.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.Color">
+            <summary>
+            Color device, support both color and color temperature adjustment.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.Stripe">
+            <summary>
+            Smart LED stripe.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.Ceiling">
+            <summary>
+             Ceiling Light.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.BedsideLamp">
+            <summary>
+            Bedside lamp.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.DeskLamp">
+            <summary>
+            Desk Lamp.
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.MODEL.TunableWhiteBulb">
+            <summary>
+            White bulb, supports color temperature adjustment.
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.Music.MusicAction">
+            <summary>
+            Actions for music mode
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Music.MusicAction.Off">
+            <summary>
+            Off
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Music.MusicAction.On">
+            <summary>
+            On
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.NotificationResult">
+            <summary>
+            Notification, resulting of a command which has changed the state of the bulb
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.NotificationResult.Method">
+            <summary>
+            Method
+            </summary>
+        </member>
+        <member name="P:YeelightAPI.Models.NotificationResult.Params">
+            <summary>
+            Parameters
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.PowerOnMode">
+            <summary>
+            Power-ON mode
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PowerOnMode.Normal">
+            <summary>
+            Normal
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PowerOnMode.Ct">
+            <summary>
+            Color Temperature
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PowerOnMode.RGB">
+            <summary>
+            RGB color
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PowerOnMode.HSV">
+            <summary>
+            HSV color
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PowerOnMode.ColorFlow">
+            <summary>
+            Color Flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PowerOnMode.Night">
+            <summary>
+            Night (ceiling light only)
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.PROPERTIES">
+            <summary>
+            Available Properties
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.NONE">
+            <summary>
+            None, only exists to prevent Casts exceptions if a value does not exists in the enum
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.power">
+            <summary>
+            on: smart LED is turned on / off: smart LED is turned off
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bright">
+            <summary>
+            Brightness percentage. Range 1 ~ 100
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.ct">
+            <summary>
+            Color temperature. Range 1700 ~ 6500(k)
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.rgb">
+            <summary>
+            Color. Range 1 ~ 16777215
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.hue">
+            <summary>
+            Hue. Range 0 ~ 359
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.sat">
+            <summary>
+            Saturation. Range 0 ~ 100
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.color_mode">
+            <summary>
+            1: rgb mode / 2: color temperature mode / 3: hsv mode
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.flowing">
+            <summary>
+            0: no flow is running / 1:color flow is running
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.delayoff">
+            <summary>
+            The remaining time of a sleep timer. Range 1 ~ 60 (minutes)
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.flow_params">
+            <summary>
+            Current flow parameters (only meaningful when 'flowing' is 1)
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.music_on">
+            <summary>
+            1: Music mode is on / 0: Music mode is off
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.name">
+            <summary>
+            The name of the device set by “set_name” command
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_power">
+            <summary>
+            Background light power status
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_flowing">
+            <summary>
+            Background light is flowing
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_flow_params">
+            <summary>
+            Current flow parameters of background light
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_ct">
+            <summary>
+            Color temperature of background light
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_lmode">
+            <summary>
+            1: rgb mode / 2: color temperature mode / 3: hsv mode
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_bright">
+            <summary>
+            Brightness percentage of background light
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_rgb">
+            <summary>
+            Color of background light
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_hue">
+            <summary>
+            Hue of background light
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.bg_sat">
+            <summary>
+            Saturation of background light
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.nl_br">
+            <summary>
+            Brightness of night mode light
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.active_mode">
+            <summary>
+            0: daylight mode / 1: moonlight mode (ceiling light only)
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.PROPERTIES.ALL">
+            <summary>
+            All Properties
+            </summary>
+        </member>
+        <member name="T:YeelightAPI.Models.Scene.Scene">
+            <summary>
+            Scene
+            </summary>
+        </member>
+        <member name="M:YeelightAPI.Models.Scene.Scene.#ctor(System.Collections.Generic.List{System.Object})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:YeelightAPI.Models.Scene.Scene.FromAutoDelayOff(System.Int32,System.Int32)">
+            <summary>
+            Get a Scene from an auto delay off timing
+            </summary>
+            <param name="delay"></param>
+            <param name="brightness"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.Scene.Scene.FromColorFlow(YeelightAPI.Models.ColorFlow.ColorFlow)">
+            <summary>
+            Get a Scene from a color flow
+            </summary>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.Scene.Scene.FromColorTemperature(System.Int32,System.Int32)">
+            <summary>
+            Get a Scene from a color temperature
+            </summary>
+            <param name="temperature"></param>
+            <param name="brightness"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.Scene.Scene.FromHSVColor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get a Scene from a HSV color
+            </summary>
+            <param name="hue"></param>
+            <param name="sat"></param>
+            <param name="brightness"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YeelightAPI.Models.Scene.Scene.FromRGBColor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get a Scene from a RGB color
+            </summary>
+            <param name="r"></param>
+            <param name="g"></param>
+            <param name="b"></param>
+            <param name="brightness"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YeelightAPI.Models.Scene.SceneClass">
+            <summary>
+            Available classes for a Scene
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Scene.SceneClass.color">
+            <summary>
+            RGB Color
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Scene.SceneClass.hsv">
+            <summary>
+            HSV Color
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Scene.SceneClass.ct">
+            <summary>
+            Color temperature
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Scene.SceneClass.cf">
+            <summary>
+            Color Flow
+            </summary>
+        </member>
+        <member name="F:YeelightAPI.Models.Scene.SceneClass.auto_delay_off">
+            <summary>
+            automatic delay off
+            </summary>
+        </member>
+    </members>
+</doc>

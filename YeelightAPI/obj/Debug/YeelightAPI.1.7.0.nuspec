@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>YeelightAPI</id>
+    <version>1.7.0</version>
+    <authors>Romain ODDONE</authors>
+    <owners>Romain ODDONE</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://raw.githubusercontent.com/roddone/YeelightAPI/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/roddone/YeelightAPI</projectUrl>
+    <iconUrl>https://github.com/roddone/YeelightAPI/raw/master/YeelightAPI/icon.png</iconUrl>
+    <description>Xiaomi yeelight smart-devices manager</description>
+    <releaseNotes>* Add "DeviceFound" event when DeviceLocator finds a device</releaseNotes>
+    <copyright>Copyright © Romain ODDONE 2019</copyright>
+    <tags>xiaomi yeelight api bulb device iot .net c#</tags>
+    <repository type="Github" url="https://github.com/roddone/YeelightAPI" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Newtonsoft.Json" version="12.0.2" exclude="Build,Analyzers" />
+        <dependency id="System.Net.NetworkInformation" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.6">
+        <dependency id="Newtonsoft.Json" version="12.0.2" exclude="Build,Analyzers" />
+        <dependency id="System.Net.NetworkInformation" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.7">
+        <dependency id="Newtonsoft.Json" version="12.0.2" exclude="Build,Analyzers" />
+        <dependency id="System.Net.NetworkInformation" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Newtonsoft.Json" version="12.0.2" exclude="Build,Analyzers" />
+        <dependency id="System.Net.NetworkInformation" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net45\YeelightAPI.dll" target="lib\net45\YeelightAPI.dll" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net45\YeelightAPI.xml" target="lib\net45\YeelightAPI.xml" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net46\YeelightAPI.dll" target="lib\net46\YeelightAPI.dll" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net46\YeelightAPI.xml" target="lib\net46\YeelightAPI.xml" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net47\YeelightAPI.dll" target="lib\net47\YeelightAPI.dll" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net47\YeelightAPI.xml" target="lib\net47\YeelightAPI.xml" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.dll" target="lib\netstandard2.0\YeelightAPI.dll" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.xml" target="lib\netstandard2.0\YeelightAPI.xml" />
+    <file src="C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\README.txt" target=".\README.txt" />
+  </files>
+</package>

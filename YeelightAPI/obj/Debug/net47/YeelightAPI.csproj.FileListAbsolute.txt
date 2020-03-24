@@ -1,0 +1,12 @@
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net47\YeelightAPI.dll
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net47\YeelightAPI.pdb
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net47\YeelightAPI.xml
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net47\Newtonsoft.Json.dll
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\bin\Debug\net47\System.Net.NetworkInformation.dll
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\net47\YeelightAPI.csprojAssemblyReference.cache
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\net47\YeelightAPI.AssemblyInfoInputs.cache
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\net47\YeelightAPI.AssemblyInfo.cs
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\net47\YeelightAPI.csproj.CopyComplete
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\net47\YeelightAPI.dll
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\net47\YeelightAPI.xml
+C:\Users\Robot\Desktop\YeelightAPI-master\YeelightAPI\obj\Debug\net47\YeelightAPI.pdb

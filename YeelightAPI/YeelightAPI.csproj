@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks> netstandard2.0; net45; net46; net47;</TargetFrameworks>
+    <Authors>Romain ODDONE</Authors>
+    <Company>Romain ODDONE</Company>
+    <Version>1.7.0</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/roddone/YeelightAPI/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/roddone/YeelightAPI</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/roddone/YeelightAPI/raw/master/YeelightAPI/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/roddone/YeelightAPI</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>xiaomi yeelight api bulb device iot .net c#</PackageTags>
+    <PackageReleaseNotes>* Add "DeviceFound" event when DeviceLocator finds a device</PackageReleaseNotes>
+    <Description>Xiaomi yeelight smart-devices manager</Description>
+    <Copyright>Copyright © Romain ODDONE 2019</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyVersion>1.7.0.0</AssemblyVersion>
+    <FileVersion>1.7.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.txt" Pack="true" PackagePath="." />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Net.NetworkInformation" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
