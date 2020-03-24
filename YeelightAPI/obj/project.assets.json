@@ -2468,11 +2468,11 @@
   "project": {
     "version": "1.7.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Robot\\Desktop\\YeelightAPI-master\\YeelightAPI\\YeelightAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj",
       "projectName": "YeelightAPI",
-      "projectPath": "C:\\Users\\Robot\\Desktop\\YeelightAPI-master\\YeelightAPI\\YeelightAPI.csproj",
+      "projectPath": "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj",
       "packagesPath": "C:\\Users\\Robot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Robot\\Desktop\\YeelightAPI-master\\YeelightAPI\\obj\\",
+      "outputPath": "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
