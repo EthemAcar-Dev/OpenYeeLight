@@ -66,13 +66,13 @@ namespace OpenYeeLightUI
         {
             if (trackbarMouseDown == true && trackbarScrolling == true)
             {
-                foreach (Device selectedItem in _mainForm.LightsListBox.CheckedItems)
+                foreach (DeviceViewModel selectedItem in _mainForm.LightsListBox.CheckedItems)
                 {
-                    if (selectedItem.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
+                    if (selectedItem.Device.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
                     {
-                        _ = Yeelight.TurnOnAsync(selectedItem);
+                        _ = Yeelight.TurnOnAsync(selectedItem.Device);
                     }
-                    _ = Yeelight.SetBrightnessAsync(selectedItem, BrightnessTrackbar.Value, Properties.Settings.Default.Smoothness * 10);
+                    _ = Yeelight.SetBrightnessAsync(selectedItem.Device, BrightnessTrackbar.Value, Properties.Settings.Default.Smoothness * 10);
                 }
             }
             trackbarMouseDown = false;
@@ -95,13 +95,13 @@ namespace OpenYeeLightUI
         {
             if (trackbarMouseDown == true && trackbarScrolling == true)
             {
-                foreach (Device selectedItem in _mainForm.LightsListBox.CheckedItems)
+                foreach (DeviceViewModel selectedItem in _mainForm.LightsListBox.CheckedItems)
                 {
-                    if (selectedItem.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
+                    if (selectedItem.Device.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
                     {
-                        _ = Yeelight.TurnOnAsync(selectedItem);
+                        _ = Yeelight.TurnOnAsync(selectedItem.Device);
                     }
-                    _ = Yeelight.SetColorTemperatureAsync(selectedItem, TemperatureTrackBar.Value, Properties.Settings.Default.Smoothness * 10);
+                    _ = Yeelight.SetColorTemperatureAsync(selectedItem.Device, TemperatureTrackBar.Value, Properties.Settings.Default.Smoothness * 10);
                 }
             }
             trackbarMouseDown = false;
