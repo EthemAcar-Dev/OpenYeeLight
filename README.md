@@ -12,6 +12,6 @@ Source: C# .NET https://github.com/EthemAcar-Dev/OpenYeeLight
 - Lights group management,
 - Selected multi lights control,
 - Tasks management: “If i start chrome turn Gameroom light to purple”,
-- Light management: RGB, Brightness, Temperature, Smoothness.
+- ~~Light management: RGB, Brightness, Temperature, Smoothness.~~
 
 Any features requests welcome.
