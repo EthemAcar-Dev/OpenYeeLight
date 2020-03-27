@@ -1,7 +1,11 @@
 ﻿using ComponentFactory.Krypton.Toolkit;
+using Onova;
+using Onova.Models;
+using Onova.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +25,7 @@ namespace OpenYeeLightUI
         private void MainForm_Load(object sender, EventArgs e)
         {
             InitComponents();
+            Updater();
             _ = Loader();
         }
 
@@ -63,7 +68,20 @@ namespace OpenYeeLightUI
                 DevicesLabel.Values.ExtraText = LightsListBox.ListBox.Items.Count.ToString();
             });
         }
-
+        private async void Updater()
+        {
+            using (var manager = new UpdateManager(
+                new GithubPackageResolver("EthemAcar-Dev", "OpenYeeLight", "*.zip"),
+                new ZipPackageExtractor()))
+            {
+                CheckForUpdatesResult update = await manager.CheckForUpdatesAsync();
+                if (update.CanUpdate)
+                {
+                    UpdateForm updateForm = new UpdateForm(update, manager);
+                    updateForm.ShowDialog();
+                }
+            }
+        }
         private void BrightnessTrackbar_ValueChanged(object sender, EventArgs e)
         {
             BrightnessLabel.Values.ExtraText = $"{BrightnessTrackbar.Value.ToString()}%";

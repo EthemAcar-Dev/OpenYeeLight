@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj": {}
+    "C:\\Users\\Robot\\source\\repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj": {
+    "C:\\Users\\Robot\\source\\repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj": {
       "version": "1.7.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Robot\\source\\repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj",
         "projectName": "YeelightAPI",
-        "projectPath": "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj",
+        "projectPath": "C:\\Users\\Robot\\source\\repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj",
         "packagesPath": "C:\\Users\\Robot\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robot\\Source\\Repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\obj\\",
+        "outputPath": "C:\\Users\\Robot\\source\\repos\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
