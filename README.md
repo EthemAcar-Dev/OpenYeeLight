@@ -1,7 +1,7 @@
 # OpenYeeLight
 Open Source Yeelight Tool for Windows.
 
-![](https://i.imgur.com/CnkDqju.png)
+![](https://i.ibb.co/R7pWHCv/Screenshot-3.png)
 
 Download: https://github.com/EthemAcar-Dev/OpenYeeLight/releases/
 
