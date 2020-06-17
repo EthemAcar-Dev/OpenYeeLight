@@ -1,11 +1,12 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿// Created by Ethem Acar
+using ComponentFactory.Krypton.Toolkit;
+using nucs.JsonSettings;
 using Onova;
 using Onova.Models;
 using Onova.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +16,9 @@ namespace OpenYeeLightUI
 {
     public partial class MainForm : KryptonForm
     {
-        private BtsForm btsForm;
+        private BtsForm _btsForm;
+        private readonly MySettings _settings = JsonSettings.Load<MySettings>();
+        private bool _isColour = false;
 
         public MainForm()
         {
@@ -36,11 +39,32 @@ namespace OpenYeeLightUI
             TemperatureLabel.Values.ExtraText = $"{TemperatureTrackBar.Value.ToString()}K";
             SmoothnessLabel.Values.ExtraText = $"{SmoothnessTrackBar.Value.ToString()}0MS";
 
-            btsForm = new BtsForm(this);
+            _btsForm = new BtsForm(this);
 
-            Panel1.Visible = false;
+            HeaderPanel.Visible = false;
             SplitContainer2.Visible = false;
+            if (_settings.Profiles == null)
+                _settings.Profiles = new List<Profile>();
+            LoadSettings();
         }
+
+        private void LoadSettings()
+        {
+            if (_settings.Profiles == null) return;
+            ProfileComboBox.ComboBox.Items.Clear();
+            foreach (var profile in _settings.Profiles)
+            {
+                ProfileComboBox.ComboBox.Items.Add(profile);
+            }
+        }
+
+        private void SaveSetting(string name)
+        {
+            _settings.Profiles.Add(new Profile() { Name = name, Key = Guid.NewGuid() });
+            _settings.Save();
+        }
+
+        private DeviceViewModel _lastSelectedLight;
 
         private async Task Loader()
         {
@@ -59,15 +83,32 @@ namespace OpenYeeLightUI
             {
                 LightsListBox.ListBox.Invoke((MethodInvoker)delegate ()
                 {
-                    LightsListBox.ListBox.Items.Add(new DeviceViewModel { Device = device, Hostname = device.Hostname, Name = device.Name });
+                    LightsListBox.ListBox.Items.Add(new DeviceViewModel { Device = device, Hostname = device.Hostname, Name = device.Name, IsOn = device.Properties.FirstOrDefault(m => m.Key == "power").Value.ToString() });
                 });
             }
 
+            if (_lastSelectedLight != null)
+            {
+                LightsListBox.ListBox.Invoke((MethodInvoker)delegate ()
+                {
+                    for (var i = 0; i < LightsListBox.ListBox.Items.Count; i++)
+                    {
+                        object lightItem = LightsListBox.ListBox.Items[i];
+                        int index = LightsListBox.ListBox.Items.IndexOf(lightItem);
+                        DeviceViewModel viewModelItem = (DeviceViewModel)lightItem;
+                        if (viewModelItem.Hostname == _lastSelectedLight.Hostname)
+                        {
+                            LightsListBox.ListBox.SetSelected(index, true);
+                        }
+                    }
+                });
+            }
             DevicesLabel.Invoke((MethodInvoker)delegate ()
             {
                 DevicesLabel.Values.ExtraText = LightsListBox.ListBox.Items.Count.ToString();
             });
         }
+
         private async void Updater()
         {
             using (var manager = new UpdateManager(
@@ -82,6 +123,7 @@ namespace OpenYeeLightUI
                 }
             }
         }
+
         private void BrightnessTrackbar_ValueChanged(object sender, EventArgs e)
         {
             BrightnessLabel.Values.ExtraText = $"{BrightnessTrackbar.Value.ToString()}%";
@@ -101,7 +143,7 @@ namespace OpenYeeLightUI
         {
             foreach (DeviceViewModel selectedItem in LightsListBox.CheckedItems)
             {
-                _ = Yeelight.TurnOnAsync(selectedItem.Device, Properties.Settings.Default.Smoothness * 10);
+                _ = Yeelight.TurnOnAsync(selectedItem.Device, SmoothnessTrackBar.Value * 10);
             }
         }
 
@@ -109,7 +151,7 @@ namespace OpenYeeLightUI
         {
             foreach (DeviceViewModel selectedItem in LightsListBox.CheckedItems)
             {
-                _ = Yeelight.TurnOffAsync(selectedItem.Device, Properties.Settings.Default.Smoothness * 10);
+                _ = Yeelight.TurnOffAsync(selectedItem.Device, SmoothnessTrackBar.Value * 10);
             }
         }
 
@@ -125,9 +167,9 @@ namespace OpenYeeLightUI
         {
             foreach (DeviceViewModel selectedItem in LightsListBox.CheckedItems)
             {
-                if (selectedItem.Device.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
+                if (selectedItem.Device.Properties.FirstOrDefault(m => m.Key == "power").Value.ToString() == "off")
                 {
-                    _ = Yeelight.TurnOnAsync(selectedItem.Device, Properties.Settings.Default.Smoothness * 10);
+                    _ = Yeelight.TurnOnAsync(selectedItem.Device, SmoothnessTrackBar.Value * 10);
                 }
                 _ = Yeelight.SetRGBAsync(selectedItem.Device,
                     new RGB
@@ -135,28 +177,28 @@ namespace OpenYeeLightUI
                         Red = ColourWheelAll.Colour.R,
                         Green = ColourWheelAll.Colour.G,
                         Blue = ColourWheelAll.Colour.B
-                    }, Properties.Settings.Default.Smoothness * 10);
+                    }, SmoothnessTrackBar.Value * 10);
             }
         }
 
-        private bool isAllSelected;
+        private bool _isAllSelected;
 
-        private void SelectAllLight_Click(object sender, EventArgs e)
+        private void CheckAllLight_Click(object sender, EventArgs e)
         {
-            isAllSelected = !isAllSelected;
+            _isAllSelected = !_isAllSelected;
 
             for (int item = 0; item < LightsListBox.ListBox.Items.Count; item++)
             {
-                LightsListBox.SetItemChecked(item, isAllSelected);
+                LightsListBox.SetItemChecked(item, _isAllSelected);
             }
 
-            SelectAllLight.Text = isAllSelected ? "Unselect All" : "Select All";
+            CheckAllLight.Text = _isAllSelected ? "Uncheck All" : "Check All";
         }
 
         private void BTSLight_Click(object sender, EventArgs e)
         {
-            btsForm.Show();
-            btsForm.Focus();
+            _btsForm.Show();
+            _btsForm.Focus();
         }
 
         private void SelectedLightsCheckerTimer_Tick(object sender, EventArgs e)
@@ -176,23 +218,24 @@ namespace OpenYeeLightUI
             _ = Loader();
         }
 
-        private DeviceViewModel currentDevice = null;
+        private DeviceViewModel _currentDevice = null;
 
         private void LightsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentDevice = (DeviceViewModel)LightsListBox.ListBox.SelectedItem;
-            Panel1.Visible = true;
+            _lastSelectedLight = (DeviceViewModel)LightsListBox.ListBox.SelectedItem;
+            _currentDevice = (DeviceViewModel)LightsListBox.ListBox.SelectedItem;
+            HeaderPanel.Visible = true;
             SplitContainer2.Visible = true;
-            LightName.Text = currentDevice.Name;
-            DetailsText.Text = $"Name : {currentDevice.Device.Name}{Environment.NewLine}" +
-                               $"Hostname : {currentDevice.Device.Hostname}{Environment.NewLine}" +
-                               $"ID : {currentDevice.Device.Id}{Environment.NewLine}" +
-                               $"Firmware version : {currentDevice.Device.FirmwareVersion}{Environment.NewLine}" +
-                               $"Model : {currentDevice.Device.Model}";
+            LightName.Text = _currentDevice.Name;
+            DetailsText.Text = $"Name : {_currentDevice.Device.Name}{Environment.NewLine}" +
+                               $"Hostname : {_currentDevice.Device.Hostname}{Environment.NewLine}" +
+                               $"ID : {_currentDevice.Device.Id}{Environment.NewLine}" +
+                               $"Firmware version : {_currentDevice.Device.FirmwareVersion}{Environment.NewLine}" +
+                               $"Model : {_currentDevice.Device.Model}";
 
-            BrightnessTrackbar.Value = int.Parse(currentDevice.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.bright.ToString()).Value.ToString());
-            TemperatureTrackBar.Value = int.Parse(currentDevice.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.ct.ToString()).Value.ToString());
-            int color = int.Parse(currentDevice.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.rgb.ToString()).Value.ToString());
+            BrightnessTrackbar.Value = int.Parse(_currentDevice.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.bright.ToString()).Value.ToString());
+            TemperatureTrackBar.Value = int.Parse(_currentDevice.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.ct.ToString()).Value.ToString());
+            int color = int.Parse(_currentDevice.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.rgb.ToString()).Value.ToString());
             ColourWheel.Colour = Color.FromArgb(color);
         }
 
@@ -204,75 +247,201 @@ namespace OpenYeeLightUI
 
         private async Task SaveAndReloadAsync()
         {
-            await Yeelight.SetNameAsync(currentDevice.Device, LightName.Text);
+            await Yeelight.SetNameAsync(_currentDevice.Device, LightName.Text);
             await Loader();
             SaveLightName.Enabled = ButtonEnabled.True;
         }
 
-        private bool trackbarMouseDown = false;
-        private bool trackbarScrolling = false;
+        private bool _trackbarMouseDown = false;
+        private bool _trackbarScrolling = false;
 
         private void BrightnessTrackbar_Scroll(object sender, EventArgs e)
         {
-            trackbarScrolling = true;
+            _trackbarScrolling = true;
         }
 
         private void BrightnessTrackbar_MouseDown(object sender, MouseEventArgs e)
         {
-            trackbarMouseDown = true;
+            _trackbarMouseDown = true;
+        }
+
+        private void SetBrightness()
+        {
+            if (_currentDevice.Device.Properties.FirstOrDefault(m => m.Key == "power").Value.ToString() == "off")
+            {
+                _ = Yeelight.TurnOnAsync(_currentDevice.Device);
+            }
+            _ = Yeelight.SetBrightnessAsync(_currentDevice.Device, BrightnessTrackbar.Value, SmoothnessTrackBar.Value * 10);
         }
 
         private void BrightnessTrackbar_MouseUp(object sender, MouseEventArgs e)
         {
-            if (trackbarMouseDown == true && trackbarScrolling == true)
+            if (_trackbarMouseDown == true && _trackbarScrolling == true)
             {
-                if (currentDevice.Device.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
-                {
-                    _ = Yeelight.TurnOnAsync(currentDevice.Device);
-                }
-                _ = Yeelight.SetBrightnessAsync(currentDevice.Device, BrightnessTrackbar.Value, SmoothnessTrackBar.Value * 10);
+                SetBrightness();
             }
-            trackbarMouseDown = false;
-            trackbarScrolling = false;
+            _trackbarMouseDown = false;
+            _trackbarScrolling = false;
         }
 
         private void TemperatureTrackBar_Scroll(object sender, EventArgs e)
         {
-            trackbarScrolling = true;
+            _trackbarScrolling = true;
         }
 
         private void TemperatureTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
-            trackbarMouseDown = true;
+            _trackbarMouseDown = true;
+        }
+
+        private void SetTemperature()
+        {
+            if (_currentDevice.Device.Properties.FirstOrDefault(m => m.Key == "power").Value.ToString() == "off")
+            {
+                _ = Yeelight.TurnOnAsync(_currentDevice.Device);
+            }
+            _ = Yeelight.SetColorTemperatureAsync(_currentDevice.Device, TemperatureTrackBar.Value, SmoothnessTrackBar.Value * 10);
+            _isColour = false;
         }
 
         private void TemperatureTrackBar_MouseUp(object sender, MouseEventArgs e)
         {
-            if (trackbarMouseDown == true && trackbarScrolling == true)
+            if (_trackbarMouseDown == true && _trackbarScrolling == true)
             {
-                if (currentDevice.Device.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
-                {
-                    _ = Yeelight.TurnOnAsync(currentDevice.Device);
-                }
-                _ = Yeelight.SetColorTemperatureAsync(currentDevice.Device, TemperatureTrackBar.Value, SmoothnessTrackBar.Value * 10);
+                SetTemperature();
             }
-            trackbarMouseDown = false;
-            trackbarScrolling = false;
+            _trackbarMouseDown = false;
+            _trackbarScrolling = false;
         }
 
-        private void ColourWheel_Click(object sender, EventArgs e)
+        private void SetColour()
         {
-            if (currentDevice.Device.Properties.Where(m => m.Key == "power").FirstOrDefault().Value.ToString() == "off")
+            if (_currentDevice.Device.Properties.FirstOrDefault(m => m.Key == "power").Value.ToString() == "off")
             {
-                _ = Yeelight.TurnOnAsync(currentDevice.Device, SmoothnessTrackBar.Value * 10);
+                _ = Yeelight.TurnOnAsync(_currentDevice.Device, SmoothnessTrackBar.Value * 10);
             }
-            _ = Yeelight.SetRGBAsync(currentDevice.Device,
+            _ = Yeelight.SetRGBAsync(_currentDevice.Device,
                 new RGB
                 {
                     Red = ColourWheel.Colour.R,
                     Green = ColourWheel.Colour.G,
                     Blue = ColourWheel.Colour.B
                 }, SmoothnessTrackBar.Value * 10);
+        }
+
+        private void ColourWheel_Click(object sender, EventArgs e)
+        {
+            SetColour();
+            _isColour = true;
+        }
+
+        private async void TurnOn_Click(object sender, EventArgs e)
+        {
+            Enabled = false;
+            foreach (DeviceViewModel selectedItem in LightsListBox.SelectedItems)
+            {
+                await Yeelight.TurnOnAsync(selectedItem.Device, SmoothnessTrackBar.Value * 10);
+            }
+
+            await Loader();
+            Enabled = true;
+        }
+
+        private async void TurnOff_Click(object sender, EventArgs e)
+        {
+            Enabled = false;
+            foreach (DeviceViewModel selectedItem in LightsListBox.SelectedItems)
+            {
+                await Yeelight.TurnOffAsync(selectedItem.Device, SmoothnessTrackBar.Value * 10);
+            }
+            await Loader();
+            Enabled = true;
+        }
+
+        private async void Toggle_Click(object sender, EventArgs e)
+        {
+            Enabled = false;
+            foreach (DeviceViewModel selectedItem in LightsListBox.SelectedItems)
+            {
+                await Yeelight.ToggleAsync(selectedItem.Device);
+            }
+            await Loader();
+            Enabled = true;
+        }
+
+        private void ProfileGroupBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_currentDevice != null)
+            {
+                Profile currentProfile = (Profile)ProfileComboBox.ComboBox.SelectedItem;
+                SmoothnessTrackBar.Value = currentProfile.Smoothness;
+                BrightnessTrackbar.Value = currentProfile.Brightness;
+                TemperatureTrackBar.Value = currentProfile.Temperature;
+                ColourWheel.Colour = Color.FromArgb(currentProfile.Red, currentProfile.Green, currentProfile.Blue);
+                SetBrightness();
+                if (currentProfile.IsColour)
+                {
+                    SetColour();
+                }
+                else
+                {
+                    SetTemperature();
+                }
+            }
+        }
+
+        public string ShowDialog(string text, string caption)
+        {
+            KryptonForm prompt = new KryptonForm()
+            {
+                Width = 500,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedToolWindow,
+                Text = caption,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            KryptonLabel textLabel = new KryptonLabel() { Left = 35, Top = 10, Text = text };
+            KryptonTextBox textBox = new KryptonTextBox() { Left = 40, Top = 40, Width = 400 };
+            KryptonButton confirmation = new KryptonButton() { Text = "Add profile", Left = 340, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+            prompt.Controls.Add(textBox);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel);
+            prompt.AcceptButton = confirmation;
+
+            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+        }
+
+        private void NewProfile_Click(object sender, EventArgs e)
+        {
+            var messageBox = ShowDialog("Profile name", "Profile name");
+            SaveSetting(messageBox);
+            LoadSettings();
+        }
+
+        private void SaveProfile_Click(object sender, EventArgs e)
+        {
+            var profile = (Profile)ProfileComboBox.ComboBox.SelectedItem;
+            var updatingProfile = _settings.Profiles.FirstOrDefault(m => m.Key == profile.Key);
+            if (updatingProfile == null) return;
+            updatingProfile.Brightness = BrightnessTrackbar.Value;
+            updatingProfile.Smoothness = SmoothnessTrackBar.Value;
+            updatingProfile.Temperature = TemperatureTrackBar.Value;
+            updatingProfile.Blue = ColourWheel.Colour.B;
+            updatingProfile.Red = ColourWheel.Colour.R;
+            updatingProfile.Green = ColourWheel.Colour.G;
+            updatingProfile.IsColour = _isColour;
+            _settings.Save();
+        }
+
+        private void DeleteProfile_Click(object sender, EventArgs e)
+        {
+            var profile = (Profile)ProfileComboBox.ComboBox.SelectedItem;
+            var updatingProfile = _settings.Profiles.FirstOrDefault(m => m.Key == profile.Key);
+            if (updatingProfile == null) return;
+            _settings.Profiles.Remove(updatingProfile);
+            _settings.Save();
+            LoadSettings();
         }
     }
 }

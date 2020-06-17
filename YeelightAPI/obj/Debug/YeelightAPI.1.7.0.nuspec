@@ -34,14 +34,14 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\YeelightAPI.dll" target="lib\net45\YeelightAPI.dll" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\YeelightAPI.xml" target="lib\net45\YeelightAPI.xml" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net46\YeelightAPI.dll" target="lib\net46\YeelightAPI.dll" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net46\YeelightAPI.xml" target="lib\net46\YeelightAPI.xml" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net47\YeelightAPI.dll" target="lib\net47\YeelightAPI.dll" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net47\YeelightAPI.xml" target="lib\net47\YeelightAPI.xml" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.dll" target="lib\netstandard2.0\YeelightAPI.dll" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.xml" target="lib\netstandard2.0\YeelightAPI.xml" />
-    <file src="C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\README.txt" target=".\README.txt" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\YeelightAPI.dll" target="lib\net45\YeelightAPI.dll" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\YeelightAPI.xml" target="lib\net45\YeelightAPI.xml" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net46\YeelightAPI.dll" target="lib\net46\YeelightAPI.dll" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net46\YeelightAPI.xml" target="lib\net46\YeelightAPI.xml" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net47\YeelightAPI.dll" target="lib\net47\YeelightAPI.dll" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net47\YeelightAPI.xml" target="lib\net47\YeelightAPI.xml" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.dll" target="lib\netstandard2.0\YeelightAPI.dll" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\netstandard2.0\YeelightAPI.xml" target="lib\netstandard2.0\YeelightAPI.xml" />
+    <file src="D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\README.txt" target=".\README.txt" />
   </files>
 </package>

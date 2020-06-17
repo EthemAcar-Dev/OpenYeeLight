@@ -40,15 +40,18 @@
             this.ToggleLight = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.SelectedLightsSeperator1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
             this.ActionsGroupTripple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupCustomControl1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControl();
+            this.ColourWheelContainer = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControl();
             this.ColourWheelAll = new ExtendedControls.ExtendedToolkit.Controls.Colours.Controls.ColourWheel();
             this.SelectedLightsSeperator2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
             this.ActionsGroupTripple3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.BTSLight = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.ProcessGroup = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.ProcessManagerButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.SplitContainer = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.LightsListBox = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
             this.LightsListBoxStrip = new ExtendedControls.ExtendedToolkit.FloatingFramework.Controls.TearOffToolStrip();
-            this.SelectAllLight = new System.Windows.Forms.ToolStripButton();
+            this.CheckAllLight = new System.Windows.Forms.ToolStripButton();
             this.RefreshLight = new System.Windows.Forms.ToolStripButton();
             this.DevicesLabel = new ExtendedControls.ExtendedToolkit.Controls.KryptonBorderedLabel();
             this.SplitContainer2 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
@@ -60,12 +63,22 @@
             this.TemperatureTrackBar = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
             this.SmoothnessLabel = new ExtendedControls.ExtendedToolkit.Controls.KryptonBorderedLabel();
             this.SmoothnessTrackBar = new ComponentFactory.Krypton.Toolkit.KryptonTrackBar();
-            this.Panel1 = new ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonPanel();
-            this.DetailsGroupBox = new ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox();
-            this.DetailsText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.HeaderPanel = new ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonPanel();
+            this.SettingsGroupBox = new ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox();
+            this.ProfileComboBox = new OpenYeeLightUI.ComboBoxFix();
+            this.SaveProfile = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.NewProfile = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.DeleteProfile = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.ProfileLabel = new System.Windows.Forms.Label();
             this.LightName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.SaveLightName = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.label1 = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.ActionsGroupBox = new ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox();
+            this.Toggle = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.TurnOff = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.TurnOn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.DetailsGroupBox = new ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox();
+            this.DetailsText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.SelectedLightsCheckerTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
@@ -82,7 +95,10 @@
             this.SplitContainer2.Panel2.SuspendLayout();
             this.SplitContainer2.SuspendLayout();
             this.Panel2.SuspendLayout();
-            this.Panel1.SuspendLayout();
+            this.HeaderPanel.SuspendLayout();
+            this.SettingsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfileComboBox)).BeginInit();
+            this.ActionsGroupBox.SuspendLayout();
             this.DetailsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,13 +116,14 @@
             this.ActionsTab});
             this.Ribbon.SelectedTab = this.ActionsTab;
             this.Ribbon.ShowMinimizeButton = false;
-            this.Ribbon.Size = new System.Drawing.Size(918, 143);
+            this.Ribbon.Size = new System.Drawing.Size(984, 115);
             this.Ribbon.TabIndex = 1;
             // 
             // ActionsTab
             // 
             this.ActionsTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.BasicsLightGroup});
+            this.BasicsLightGroup,
+            this.ProcessGroup});
             this.ActionsTab.Text = "Actions";
             // 
             // BasicsLightGroup
@@ -118,7 +135,7 @@
             this.ActionsGroupTripple2,
             this.SelectedLightsSeperator2,
             this.ActionsGroupTripple3});
-            this.BasicsLightGroup.TextLine1 = "Selected lights";
+            this.BasicsLightGroup.TextLine1 = "Checked lights";
             // 
             // ActionsGroupTripple1
             // 
@@ -148,11 +165,11 @@
             // ActionsGroupTripple2
             // 
             this.ActionsGroupTripple2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupCustomControl1});
+            this.ColourWheelContainer});
             // 
-            // kryptonRibbonGroupCustomControl1
+            // ColourWheelContainer
             // 
-            this.kryptonRibbonGroupCustomControl1.CustomControl = this.ColourWheelAll;
+            this.ColourWheelContainer.CustomControl = this.ColourWheelAll;
             // 
             // ColourWheelAll
             // 
@@ -175,11 +192,29 @@
             this.BTSLight.TextLine1 = "B, T & S";
             this.BTSLight.Click += new System.EventHandler(this.BTSLight_Click);
             // 
+            // ProcessGroup
+            // 
+            this.ProcessGroup.DialogBoxLauncher = false;
+            this.ProcessGroup.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple1});
+            this.ProcessGroup.TextLine1 = "Task Manager";
+            this.ProcessGroup.Visible = false;
+            // 
+            // kryptonRibbonGroupTriple1
+            // 
+            this.kryptonRibbonGroupTriple1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.ProcessManagerButton});
+            // 
+            // ProcessManagerButton
+            // 
+            this.ProcessManagerButton.ImageLarge = global::OpenYeeLightUI.Properties.Resources._828;
+            this.ProcessManagerButton.TextLine1 = "Task Manager (Soon)";
+            // 
             // SplitContainer
             // 
             this.SplitContainer.Cursor = System.Windows.Forms.Cursors.Default;
             this.SplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer.Location = new System.Drawing.Point(0, 143);
+            this.SplitContainer.Location = new System.Drawing.Point(0, 115);
             this.SplitContainer.Name = "SplitContainer";
             // 
             // SplitContainer.Panel1
@@ -187,14 +222,16 @@
             this.SplitContainer.Panel1.Controls.Add(this.LightsListBox);
             this.SplitContainer.Panel1.Controls.Add(this.LightsListBoxStrip);
             this.SplitContainer.Panel1.Controls.Add(this.DevicesLabel);
+            this.SplitContainer.Panel1MinSize = 150;
             // 
             // SplitContainer.Panel2
             // 
             this.SplitContainer.Panel2.Controls.Add(this.SplitContainer2);
-            this.SplitContainer.Panel2.Controls.Add(this.Panel1);
+            this.SplitContainer.Panel2.Controls.Add(this.HeaderPanel);
+            this.SplitContainer.Panel2MinSize = 700;
             this.SplitContainer.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.SplitContainer.Size = new System.Drawing.Size(918, 286);
-            this.SplitContainer.SplitterDistance = 169;
+            this.SplitContainer.Size = new System.Drawing.Size(984, 314);
+            this.SplitContainer.SplitterDistance = 181;
             this.SplitContainer.SplitterWidth = 10;
             this.SplitContainer.TabIndex = 3;
             // 
@@ -205,7 +242,7 @@
             this.LightsListBox.ItemStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.BreadCrumb;
             this.LightsListBox.Location = new System.Drawing.Point(0, 54);
             this.LightsListBox.Name = "LightsListBox";
-            this.LightsListBox.Size = new System.Drawing.Size(169, 232);
+            this.LightsListBox.Size = new System.Drawing.Size(181, 260);
             this.LightsListBox.TabIndex = 22;
             this.LightsListBox.SelectedIndexChanged += new System.EventHandler(this.LightsListBox_SelectedIndexChanged);
             // 
@@ -214,21 +251,21 @@
             this.LightsListBoxStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.LightsListBoxStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.LightsListBoxStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SelectAllLight,
+            this.CheckAllLight,
             this.RefreshLight});
             this.LightsListBoxStrip.Location = new System.Drawing.Point(0, 29);
             this.LightsListBoxStrip.Name = "LightsListBoxStrip";
-            this.LightsListBoxStrip.Size = new System.Drawing.Size(169, 25);
+            this.LightsListBoxStrip.Size = new System.Drawing.Size(181, 25);
             this.LightsListBoxStrip.TabIndex = 21;
             // 
-            // SelectAllLight
+            // CheckAllLight
             // 
-            this.SelectAllLight.Image = global::OpenYeeLightUI.Properties.Resources._523;
-            this.SelectAllLight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SelectAllLight.Name = "SelectAllLight";
-            this.SelectAllLight.Size = new System.Drawing.Size(75, 22);
-            this.SelectAllLight.Text = "Select All";
-            this.SelectAllLight.Click += new System.EventHandler(this.SelectAllLight_Click);
+            this.CheckAllLight.Image = global::OpenYeeLightUI.Properties.Resources._523;
+            this.CheckAllLight.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CheckAllLight.Name = "CheckAllLight";
+            this.CheckAllLight.Size = new System.Drawing.Size(77, 22);
+            this.CheckAllLight.Text = "Check All";
+            this.CheckAllLight.Click += new System.EventHandler(this.CheckAllLight_Click);
             // 
             // RefreshLight
             // 
@@ -247,7 +284,7 @@
             this.DevicesLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
             this.DevicesLabel.Location = new System.Drawing.Point(0, 0);
             this.DevicesLabel.Name = "DevicesLabel";
-            this.DevicesLabel.Size = new System.Drawing.Size(169, 29);
+            this.DevicesLabel.Size = new System.Drawing.Size(181, 29);
             this.DevicesLabel.TabIndex = 19;
             this.DevicesLabel.Values.ExtraText = "0";
             this.DevicesLabel.Values.Text = "Devices";
@@ -269,17 +306,18 @@
             this.SplitContainer2.Panel2.Controls.Add(this.SmoothnessLabel);
             this.SplitContainer2.Panel2.Controls.Add(this.SmoothnessTrackBar);
             this.SplitContainer2.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
-            this.SplitContainer2.Size = new System.Drawing.Size(739, 160);
-            this.SplitContainer2.SplitterDistance = 159;
+            this.SplitContainer2.Size = new System.Drawing.Size(793, 188);
+            this.SplitContainer2.SplitterDistance = 199;
             this.SplitContainer2.TabIndex = 1;
             // 
             // ColourWheel
             // 
             this.ColourWheel.BackColor = System.Drawing.Color.Transparent;
+            this.ColourWheel.Colour = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ColourWheel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ColourWheel.Location = new System.Drawing.Point(0, 0);
             this.ColourWheel.Name = "ColourWheel";
-            this.ColourWheel.Size = new System.Drawing.Size(159, 160);
+            this.ColourWheel.Size = new System.Drawing.Size(199, 188);
             this.ColourWheel.TabIndex = 5;
             this.ColourWheel.Click += new System.EventHandler(this.ColourWheel_Click);
             // 
@@ -298,7 +336,7 @@
             this.Panel2.Location = new System.Drawing.Point(0, 0);
             this.Panel2.Name = "Panel2";
             this.Panel2.PersistentColours = false;
-            this.Panel2.Size = new System.Drawing.Size(575, 97);
+            this.Panel2.Size = new System.Drawing.Size(589, 125);
             this.Panel2.TabIndex = 12;
             // 
             // BrightnessLabel
@@ -307,9 +345,9 @@
             this.BrightnessLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BrightnessLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
             this.BrightnessLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.BrightnessLabel.Location = new System.Drawing.Point(0, -29);
+            this.BrightnessLabel.Location = new System.Drawing.Point(0, -1);
             this.BrightnessLabel.Name = "BrightnessLabel";
-            this.BrightnessLabel.Size = new System.Drawing.Size(575, 29);
+            this.BrightnessLabel.Size = new System.Drawing.Size(589, 29);
             this.BrightnessLabel.TabIndex = 18;
             this.BrightnessLabel.Values.Text = "Brightness";
             // 
@@ -318,11 +356,11 @@
             this.BrightnessTrackbar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BrightnessTrackbar.DrawBackground = true;
             this.BrightnessTrackbar.LargeChange = 0;
-            this.BrightnessTrackbar.Location = new System.Drawing.Point(0, 0);
+            this.BrightnessTrackbar.Location = new System.Drawing.Point(0, 28);
             this.BrightnessTrackbar.Maximum = 100;
             this.BrightnessTrackbar.Minimum = 1;
             this.BrightnessTrackbar.Name = "BrightnessTrackbar";
-            this.BrightnessTrackbar.Size = new System.Drawing.Size(575, 34);
+            this.BrightnessTrackbar.Size = new System.Drawing.Size(589, 34);
             this.BrightnessTrackbar.SmallChange = 0;
             this.BrightnessTrackbar.StateCommon.Position.Color1 = System.Drawing.Color.Transparent;
             this.BrightnessTrackbar.StateCommon.Tick.Color1 = System.Drawing.Color.White;
@@ -351,9 +389,9 @@
             this.TemperatureLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TemperatureLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
             this.TemperatureLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.TemperatureLabel.Location = new System.Drawing.Point(0, 34);
+            this.TemperatureLabel.Location = new System.Drawing.Point(0, 62);
             this.TemperatureLabel.Name = "TemperatureLabel";
-            this.TemperatureLabel.Size = new System.Drawing.Size(575, 29);
+            this.TemperatureLabel.Size = new System.Drawing.Size(589, 29);
             this.TemperatureLabel.TabIndex = 17;
             this.TemperatureLabel.Values.Text = "Temperature";
             // 
@@ -362,11 +400,11 @@
             this.TemperatureTrackBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TemperatureTrackBar.DrawBackground = true;
             this.TemperatureTrackBar.LargeChange = 0;
-            this.TemperatureTrackBar.Location = new System.Drawing.Point(0, 63);
+            this.TemperatureTrackBar.Location = new System.Drawing.Point(0, 91);
             this.TemperatureTrackBar.Maximum = 6500;
             this.TemperatureTrackBar.Minimum = 1700;
             this.TemperatureTrackBar.Name = "TemperatureTrackBar";
-            this.TemperatureTrackBar.Size = new System.Drawing.Size(575, 34);
+            this.TemperatureTrackBar.Size = new System.Drawing.Size(589, 34);
             this.TemperatureTrackBar.SmallChange = 0;
             this.TemperatureTrackBar.StateCommon.Position.Color1 = System.Drawing.Color.Transparent;
             this.TemperatureTrackBar.StateCommon.Tick.Color1 = System.Drawing.Color.White;
@@ -396,9 +434,9 @@
             this.SmoothnessLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SmoothnessLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
             this.SmoothnessLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.TitlePanel;
-            this.SmoothnessLabel.Location = new System.Drawing.Point(0, 97);
+            this.SmoothnessLabel.Location = new System.Drawing.Point(0, 125);
             this.SmoothnessLabel.Name = "SmoothnessLabel";
-            this.SmoothnessLabel.Size = new System.Drawing.Size(575, 29);
+            this.SmoothnessLabel.Size = new System.Drawing.Size(589, 29);
             this.SmoothnessLabel.TabIndex = 11;
             this.SmoothnessLabel.Values.Text = "Smoothness";
             // 
@@ -407,11 +445,11 @@
             this.SmoothnessTrackBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SmoothnessTrackBar.DrawBackground = true;
             this.SmoothnessTrackBar.LargeChange = 0;
-            this.SmoothnessTrackBar.Location = new System.Drawing.Point(0, 126);
+            this.SmoothnessTrackBar.Location = new System.Drawing.Point(0, 154);
             this.SmoothnessTrackBar.Maximum = 100;
             this.SmoothnessTrackBar.Minimum = 1;
             this.SmoothnessTrackBar.Name = "SmoothnessTrackBar";
-            this.SmoothnessTrackBar.Size = new System.Drawing.Size(575, 34);
+            this.SmoothnessTrackBar.Size = new System.Drawing.Size(589, 34);
             this.SmoothnessTrackBar.SmallChange = 0;
             this.SmoothnessTrackBar.StateCommon.Position.Color1 = System.Drawing.Color.Transparent;
             this.SmoothnessTrackBar.StateCommon.Tick.Color1 = System.Drawing.Color.White;
@@ -431,37 +469,204 @@
             this.SmoothnessTrackBar.Value = 1;
             this.SmoothnessTrackBar.ValueChanged += new System.EventHandler(this.SmoothnessTrackBar_ValueChanged);
             // 
-            // Panel1
+            // HeaderPanel
             // 
-            this.Panel1.BorderWidth = 0;
-            this.Panel1.Controls.Add(this.DetailsGroupBox);
-            this.Panel1.Controls.Add(this.LightName);
-            this.Panel1.Controls.Add(this.label1);
-            this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel1.GradientDirection = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.Panel1.GradientToogleColours = false;
-            this.Panel1.GradientUseBlend = false;
-            this.Panel1.GradientUseSolid = true;
-            this.Panel1.Location = new System.Drawing.Point(0, 0);
-            this.Panel1.Name = "Panel1";
-            this.Panel1.PersistentColours = false;
-            this.Panel1.Size = new System.Drawing.Size(739, 126);
-            this.Panel1.TabIndex = 0;
+            this.HeaderPanel.BorderWidth = 0;
+            this.HeaderPanel.Controls.Add(this.SettingsGroupBox);
+            this.HeaderPanel.Controls.Add(this.ActionsGroupBox);
+            this.HeaderPanel.Controls.Add(this.DetailsGroupBox);
+            this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HeaderPanel.GradientDirection = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.HeaderPanel.GradientToogleColours = false;
+            this.HeaderPanel.GradientUseBlend = false;
+            this.HeaderPanel.GradientUseSolid = true;
+            this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.HeaderPanel.Name = "HeaderPanel";
+            this.HeaderPanel.PersistentColours = false;
+            this.HeaderPanel.Size = new System.Drawing.Size(793, 126);
+            this.HeaderPanel.TabIndex = 0;
+            // 
+            // SettingsGroupBox
+            // 
+            this.SettingsGroupBox.BorderStyle = ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox.BorderMode.Full;
+            this.SettingsGroupBox.Controls.Add(this.ProfileComboBox);
+            this.SettingsGroupBox.Controls.Add(this.ProfileLabel);
+            this.SettingsGroupBox.Controls.Add(this.LightName);
+            this.SettingsGroupBox.Controls.Add(this.NameLabel);
+            this.SettingsGroupBox.DarkerColours = true;
+            this.SettingsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsGroupBox.DrawBottomLine = false;
+            this.SettingsGroupBox.DrawShadows = false;
+            this.SettingsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsGroupBox.ForceTransparent = false;
+            this.SettingsGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SettingsGroupBox.Location = new System.Drawing.Point(201, 0);
+            this.SettingsGroupBox.Name = "SettingsGroupBox";
+            this.SettingsGroupBox.PaintDefault = false;
+            this.SettingsGroupBox.Size = new System.Drawing.Size(405, 126);
+            this.SettingsGroupBox.TabIndex = 7;
+            this.SettingsGroupBox.TabStop = false;
+            this.SettingsGroupBox.Text = "Settings";
+            this.SettingsGroupBox.UseAlternateForeColour = false;
+            // 
+            // ProfileComboBox
+            // 
+            this.ProfileComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ProfileComboBox.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.SaveProfile,
+            this.NewProfile,
+            this.DeleteProfile});
+            this.ProfileComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProfileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProfileComboBox.DropDownWidth = 128;
+            this.ProfileComboBox.Location = new System.Drawing.Point(3, 89);
+            this.ProfileComboBox.Name = "ProfileComboBox";
+            this.ProfileComboBox.PersistentColours = false;
+            this.ProfileComboBox.Size = new System.Drawing.Size(399, 26);
+            this.ProfileComboBox.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.ProfileComboBox.StateCommon.ComboBox.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.ProfileComboBox.TabIndex = 4;
+            this.ProfileComboBox.UseStyledColours = false;
+            this.ProfileComboBox.SelectedIndexChanged += new System.EventHandler(this.ProfileGroupBox_SelectedIndexChanged);
+            // 
+            // SaveProfile
+            // 
+            this.SaveProfile.Image = global::OpenYeeLightUI.Properties.Resources._967;
+            this.SaveProfile.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.SaveProfile.Text = "Save";
+            this.SaveProfile.UniqueName = "9a4ced24fd0141cfb4f5474168cf41e9";
+            this.SaveProfile.Click += new System.EventHandler(this.SaveProfile_Click);
+            // 
+            // NewProfile
+            // 
+            this.NewProfile.Image = global::OpenYeeLightUI.Properties.Resources._833;
+            this.NewProfile.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.NewProfile.Text = "New";
+            this.NewProfile.UniqueName = "76c911a5adc14bbfac16369b3041869f";
+            this.NewProfile.Click += new System.EventHandler(this.NewProfile_Click);
+            // 
+            // DeleteProfile
+            // 
+            this.DeleteProfile.Image = global::OpenYeeLightUI.Properties.Resources._834;
+            this.DeleteProfile.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.DeleteProfile.Text = "Delete";
+            this.DeleteProfile.UniqueName = "61f45073cadb418998b4ba7383bfa23c";
+            this.DeleteProfile.Click += new System.EventHandler(this.DeleteProfile_Click);
+            // 
+            // ProfileLabel
+            // 
+            this.ProfileLabel.AutoSize = true;
+            this.ProfileLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ProfileLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ProfileLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfileLabel.ForeColor = System.Drawing.Color.White;
+            this.ProfileLabel.Location = new System.Drawing.Point(3, 69);
+            this.ProfileLabel.Name = "ProfileLabel";
+            this.ProfileLabel.Size = new System.Drawing.Size(60, 20);
+            this.ProfileLabel.TabIndex = 0;
+            this.ProfileLabel.Text = "Profile";
+            // 
+            // LightName
+            // 
+            this.LightName.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.SaveLightName});
+            this.LightName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LightName.Location = new System.Drawing.Point(3, 42);
+            this.LightName.Name = "LightName";
+            this.LightName.Size = new System.Drawing.Size(399, 27);
+            this.LightName.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LightName.StateCommon.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Inherit;
+            this.LightName.TabIndex = 1;
+            // 
+            // SaveLightName
+            // 
+            this.SaveLightName.Image = global::OpenYeeLightUI.Properties.Resources._967;
+            this.SaveLightName.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
+            this.SaveLightName.Text = "Save";
+            this.SaveLightName.UniqueName = "17de1e3bb09e4fc9b0c4b9f05d724c7b";
+            this.SaveLightName.Click += new System.EventHandler(this.SaveLightName_Click);
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.NameLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.ForeColor = System.Drawing.Color.White;
+            this.NameLabel.Location = new System.Drawing.Point(3, 22);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(55, 20);
+            this.NameLabel.TabIndex = 3;
+            this.NameLabel.Text = "Name";
+            // 
+            // ActionsGroupBox
+            // 
+            this.ActionsGroupBox.BorderStyle = ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox.BorderMode.Full;
+            this.ActionsGroupBox.Controls.Add(this.Toggle);
+            this.ActionsGroupBox.Controls.Add(this.TurnOff);
+            this.ActionsGroupBox.Controls.Add(this.TurnOn);
+            this.ActionsGroupBox.DarkerColours = true;
+            this.ActionsGroupBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ActionsGroupBox.DrawBottomLine = false;
+            this.ActionsGroupBox.DrawShadows = false;
+            this.ActionsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActionsGroupBox.ForceTransparent = false;
+            this.ActionsGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ActionsGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.ActionsGroupBox.Name = "ActionsGroupBox";
+            this.ActionsGroupBox.PaintDefault = false;
+            this.ActionsGroupBox.Size = new System.Drawing.Size(201, 126);
+            this.ActionsGroupBox.TabIndex = 8;
+            this.ActionsGroupBox.TabStop = false;
+            this.ActionsGroupBox.Text = "Actions";
+            this.ActionsGroupBox.UseAlternateForeColour = false;
+            // 
+            // Toggle
+            // 
+            this.Toggle.Location = new System.Drawing.Point(8, 73);
+            this.Toggle.Name = "Toggle";
+            this.Toggle.Size = new System.Drawing.Size(186, 46);
+            this.Toggle.TabIndex = 2;
+            this.Toggle.Values.Image = global::OpenYeeLightUI.Properties.Resources._39;
+            this.Toggle.Values.Text = "Toggle";
+            this.Toggle.Click += new System.EventHandler(this.Toggle_Click);
+            // 
+            // TurnOff
+            // 
+            this.TurnOff.Location = new System.Drawing.Point(104, 22);
+            this.TurnOff.Name = "TurnOff";
+            this.TurnOff.Size = new System.Drawing.Size(90, 46);
+            this.TurnOff.TabIndex = 1;
+            this.TurnOff.Values.Image = global::OpenYeeLightUI.Properties.Resources._140;
+            this.TurnOff.Values.Text = "Turn off";
+            this.TurnOff.Click += new System.EventHandler(this.TurnOff_Click);
+            // 
+            // TurnOn
+            // 
+            this.TurnOn.Location = new System.Drawing.Point(8, 22);
+            this.TurnOn.Name = "TurnOn";
+            this.TurnOn.Size = new System.Drawing.Size(90, 46);
+            this.TurnOn.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.CenterLeft;
+            this.TurnOn.TabIndex = 0;
+            this.TurnOn.Values.Image = global::OpenYeeLightUI.Properties.Resources._139;
+            this.TurnOn.Values.Text = "Turn on";
+            this.TurnOn.Click += new System.EventHandler(this.TurnOn_Click);
             // 
             // DetailsGroupBox
             // 
             this.DetailsGroupBox.BorderStyle = ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox.BorderMode.Full;
             this.DetailsGroupBox.Controls.Add(this.DetailsText);
             this.DetailsGroupBox.DarkerColours = true;
+            this.DetailsGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.DetailsGroupBox.DrawBottomLine = false;
             this.DetailsGroupBox.DrawShadows = false;
             this.DetailsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailsGroupBox.ForceTransparent = false;
             this.DetailsGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.DetailsGroupBox.Location = new System.Drawing.Point(275, 0);
+            this.DetailsGroupBox.Location = new System.Drawing.Point(606, 0);
             this.DetailsGroupBox.Name = "DetailsGroupBox";
             this.DetailsGroupBox.PaintDefault = false;
-            this.DetailsGroupBox.Size = new System.Drawing.Size(452, 119);
+            this.DetailsGroupBox.Size = new System.Drawing.Size(187, 126);
             this.DetailsGroupBox.TabIndex = 2;
             this.DetailsGroupBox.TabStop = false;
             this.DetailsGroupBox.Text = "Details";
@@ -474,48 +679,16 @@
             this.DetailsText.Multiline = true;
             this.DetailsText.Name = "DetailsText";
             this.DetailsText.ReadOnly = true;
-            this.DetailsText.Size = new System.Drawing.Size(446, 94);
+            this.DetailsText.Size = new System.Drawing.Size(181, 101);
             this.DetailsText.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.DetailsText.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
             this.DetailsText.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.DetailsText.StateActive.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.DetailsText.StateActive.Content.Color1 = System.Drawing.Color.White;
             this.DetailsText.StateActive.Content.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Inherit;
             this.DetailsText.StateNormal.Back.Color1 = System.Drawing.Color.Gray;
             this.DetailsText.TabIndex = 0;
-            // 
-            // LightName
-            // 
-            this.LightName.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.SaveLightName});
-            this.LightName.Location = new System.Drawing.Point(17, 32);
-            this.LightName.Name = "LightName";
-            this.LightName.Size = new System.Drawing.Size(201, 26);
-            this.LightName.TabIndex = 1;
-            // 
-            // SaveLightName
-            // 
-            this.SaveLightName.Image = global::OpenYeeLightUI.Properties.Resources._967;
-            this.SaveLightName.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
-            this.SaveLightName.Text = "Save";
-            this.SaveLightName.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
-            this.SaveLightName.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Generic;
-            this.SaveLightName.UniqueName = "17de1e3bb09e4fc9b0c4b9f05d724c7b";
-            this.SaveLightName.Click += new System.EventHandler(this.SaveLightName_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
             // 
             // SelectedLightsCheckerTimer
             // 
@@ -525,14 +698,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 429);
+            this.ClientSize = new System.Drawing.Size(984, 429);
             this.Controls.Add(this.SplitContainer);
             this.Controls.Add(this.Ribbon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(934, 468);
-            this.MinimumSize = new System.Drawing.Size(934, 468);
+            this.MaximumSize = new System.Drawing.Size(1000, 468);
+            this.MinimumSize = new System.Drawing.Size(1000, 468);
             this.Name = "MainForm";
             this.Text = "OpenYeeLightUI";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -555,8 +728,11 @@
             this.SplitContainer2.ResumeLayout(false);
             this.Panel2.ResumeLayout(false);
             this.Panel2.PerformLayout();
-            this.Panel1.ResumeLayout(false);
-            this.Panel1.PerformLayout();
+            this.HeaderPanel.ResumeLayout(false);
+            this.SettingsGroupBox.ResumeLayout(false);
+            this.SettingsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfileComboBox)).EndInit();
+            this.ActionsGroupBox.ResumeLayout(false);
             this.DetailsGroupBox.ResumeLayout(false);
             this.DetailsGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -569,7 +745,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonManager FormManager;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbon Ribbon;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer SplitContainer;
-        private ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonPanel Panel1;
+        private ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonPanel HeaderPanel;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer SplitContainer2;
         private ExtendedControls.ExtendedToolkit.Controls.Colours.Controls.ColourWheel ColourWheel;
         private ExtendedControls.ExtendedToolkit.Controls.KryptonBorderedLabel SmoothnessLabel;
@@ -587,22 +763,35 @@
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton TurnOffLight;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton ToggleLight;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple ActionsGroupTripple2;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControl kryptonRibbonGroupCustomControl1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCustomControl ColourWheelContainer;
         private ExtendedControls.ExtendedToolkit.Controls.Colours.Controls.ColourWheel ColourWheelAll;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator SelectedLightsSeperator1;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple ActionsGroupTripple3;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton BTSLight;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator SelectedLightsSeperator2;
         private ExtendedControls.ExtendedToolkit.FloatingFramework.Controls.TearOffToolStrip LightsListBoxStrip;
-        private System.Windows.Forms.ToolStripButton SelectAllLight;
+        private System.Windows.Forms.ToolStripButton CheckAllLight;
         public ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox LightsListBox;
         private System.Windows.Forms.Timer SelectedLightsCheckerTimer;
         private System.Windows.Forms.ToolStripButton RefreshLight;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox LightName;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny SaveLightName;
-        private System.Windows.Forms.Label label1;
         private ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox DetailsGroupBox;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox DetailsText;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup ProcessGroup;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton ProcessManagerButton;
+        private ComboBoxFix ProfileComboBox;
+        private System.Windows.Forms.Label NameLabel;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny SaveProfile;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny DeleteProfile;
+        private ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox SettingsGroupBox;
+        private System.Windows.Forms.Label ProfileLabel;
+        private ExtendedControls.ExtendedToolkit.Controls.KryptonControls.KryptonGroupBox ActionsGroupBox;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton Toggle;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton TurnOff;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton TurnOn;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny NewProfile;
     }
 }
 

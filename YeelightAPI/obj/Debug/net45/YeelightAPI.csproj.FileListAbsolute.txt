@@ -19,3 +19,15 @@ C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net
 C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.xml
 C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.pdb
 C:\Users\Robot\source\repos\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.csprojAssemblyReference.cache
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\YeelightAPI.dll
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\YeelightAPI.pdb
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\YeelightAPI.xml
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\bin\Debug\net45\Newtonsoft.Json.dll
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.AssemblyInfoInputs.cache
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.AssemblyInfo.cs
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.csproj.CoreCompileInputs.cache
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.csproj.CopyComplete
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.dll
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.xml
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.pdb
+D:\ReposBac\EthemAcar-Dev\OpenYeeLight\YeelightAPI\obj\Debug\net45\YeelightAPI.csprojAssemblyReference.cache

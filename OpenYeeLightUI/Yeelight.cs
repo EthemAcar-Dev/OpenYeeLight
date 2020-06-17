@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// Created by Ethem Acar
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YeelightAPI;
@@ -37,6 +35,7 @@ namespace OpenYeeLightUI
                 await Task.Delay(delay);
             });
         }
+
         public static async Task ToggleAsync(Device device)
         {
             if (!device.IsConnected) await device.Connect();
@@ -50,6 +49,7 @@ namespace OpenYeeLightUI
                 await Task.Delay(delay);
             });
         }
+
         public static async Task SetRGBAsync(Device device, RGB rGB, int? smooth = null)
         {
             if (!device.IsConnected) await device.Connect();
@@ -63,6 +63,7 @@ namespace OpenYeeLightUI
                 await Task.Delay(delay);
             });
         }
+
         public static async Task SetBrightnessAsync(Device device, int brightness, int? smooth = null)
         {
             if (!device.IsConnected) await device.Connect();
@@ -76,6 +77,7 @@ namespace OpenYeeLightUI
                 await Task.Delay(delay);
             });
         }
+
         public static async Task SetColorTemperatureAsync(Device device, int temperature, int? smooth = null)
         {
             if (!device.IsConnected) await device.Connect();
@@ -103,6 +105,7 @@ namespace OpenYeeLightUI
                 await Task.Delay(delay);
             });
         }
+
         public static async Task Try(Func<Task> action)
         {
             try
