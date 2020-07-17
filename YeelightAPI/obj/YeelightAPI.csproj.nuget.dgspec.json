@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\ReposBac\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj": {
-      "version": "1.7.0",
+      "version": "1.8.0",
       "restore": {
         "projectUniqueName": "D:\\ReposBac\\EthemAcar-Dev\\OpenYeeLight\\YeelightAPI\\YeelightAPI.csproj",
         "projectName": "YeelightAPI",
@@ -19,6 +19,7 @@
         ],
         "configFilePaths": [
           "C:\\Users\\Robot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,9 +29,9 @@
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net45": {
@@ -57,7 +58,7 @@
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.2, )"
+              "version": "[12.0.3, )"
             },
             "System.Net.NetworkInformation": {
               "target": "Package",
@@ -70,7 +71,7 @@
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.2, )"
+              "version": "[12.0.3, )"
             },
             "System.Net.NetworkInformation": {
               "target": "Package",
@@ -83,7 +84,7 @@
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.2, )"
+              "version": "[12.0.3, )"
             },
             "System.Net.NetworkInformation": {
               "target": "Package",
@@ -102,7 +103,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.2, )"
+              "version": "[12.0.3, )"
             },
             "System.Net.NetworkInformation": {
               "target": "Package",

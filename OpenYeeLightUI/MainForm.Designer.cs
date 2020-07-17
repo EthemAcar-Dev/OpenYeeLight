@@ -48,6 +48,9 @@
             this.ProcessGroup = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.ProcessManagerButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.DiscoverSettingsGroup = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.ActionsGroupTripple4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
+            this.MulticastCheckBox = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox();
             this.SplitContainer = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.LightsListBox = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
             this.LightsListBoxStrip = new ExtendedControls.ExtendedToolkit.FloatingFramework.Controls.TearOffToolStrip();
@@ -123,7 +126,8 @@
             // 
             this.ActionsTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.BasicsLightGroup,
-            this.ProcessGroup});
+            this.ProcessGroup,
+            this.DiscoverSettingsGroup});
             this.ActionsTab.Text = "Actions";
             // 
             // BasicsLightGroup
@@ -209,6 +213,23 @@
             // 
             this.ProcessManagerButton.ImageLarge = global::OpenYeeLightUI.Properties.Resources._828;
             this.ProcessManagerButton.TextLine1 = "Task Manager (Soon)";
+            // 
+            // DiscoverSettingsGroup
+            // 
+            this.DiscoverSettingsGroup.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.ActionsGroupTripple4});
+            this.DiscoverSettingsGroup.TextLine1 = "Discovering Devices";
+            // 
+            // ActionsGroupTripple4
+            // 
+            this.ActionsGroupTripple4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.MulticastCheckBox});
+            // 
+            // MulticastCheckBox
+            // 
+            this.MulticastCheckBox.TextLine1 = "Multicast Lookup";
+            this.MulticastCheckBox.ToolTipBody = "Use with caution because it can slow down the discovery, default to false";
+            this.MulticastCheckBox.ToolTipTitle = "Notice";
             // 
             // SplitContainer
             // 
@@ -792,6 +813,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton TurnOff;
         private ComponentFactory.Krypton.Toolkit.KryptonButton TurnOn;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny NewProfile;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup DiscoverSettingsGroup;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines ActionsGroupTripple4;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox MulticastCheckBox;
     }
 }
 

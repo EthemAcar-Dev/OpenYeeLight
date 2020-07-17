@@ -78,7 +78,9 @@ namespace OpenYeeLightUI
                 LightsListBox.ListBox.Items.Clear();
             });
 
-            List<Device> devices = await DeviceLocator.Discover();
+            DeviceLocator.UseAllAvailableMulticastAddresses = MulticastCheckBox.Checked;
+
+            var devices = await DeviceLocator.DiscoverAsync();
             foreach (Device device in devices)
             {
                 LightsListBox.ListBox.Invoke((MethodInvoker)delegate ()

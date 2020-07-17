@@ -1,5 +1,4 @@
-﻿// Created by Ethem Acar
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -84,15 +83,9 @@ namespace YeelightAPI
         public async Task<bool> Connect()
         {
             Disconnect();
-            try
-            {
-                _tcpClient = new TcpClient();
-                await _tcpClient.ConnectAsync(Hostname, Port);
-            }
-            catch
-            {
-                return false;
-            }
+
+            _tcpClient = new TcpClient();
+            await _tcpClient.ConnectAsync(Hostname, Port);
 
             if (!_tcpClient.IsConnected())
             {
