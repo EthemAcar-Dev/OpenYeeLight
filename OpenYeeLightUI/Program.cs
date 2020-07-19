@@ -1,9 +1,9 @@
 ﻿// Created by Ethem Acar
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using OpenYeeLightUI.Classes;
 
 namespace OpenYeeLightUI
 {
@@ -15,9 +15,26 @@ namespace OpenYeeLightUI
         [STAThread]
         private static void Main()
         {
+            if (!SingleInstance.Start())
+            {
+                SingleInstance.ShowFirstInstance();
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            try
+            {
+                MainForm mainForm = new MainForm();
+                Application.Run(mainForm);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+            SingleInstance.Stop();
         }
     }
 }
