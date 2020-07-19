@@ -48,6 +48,9 @@ namespace OpenYeeLightUI
         private async Task Loader()
         {
             _lightsMainNode.Nodes.Clear();
+
+            DeviceLocator.UseAllAvailableMulticastAddresses = _settings.AppSettings.MulticastLookup;
+
             var devices = await DeviceLocator.DiscoverAsync();
             foreach (Device device in devices.OrderBy(m => m.Name))
             {
