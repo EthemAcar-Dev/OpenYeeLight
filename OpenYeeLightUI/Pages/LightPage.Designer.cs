@@ -55,6 +55,7 @@
             this.FeedbackButton = new Sunny.UI.UISymbolButton();
             this.ReportButton = new Sunny.UI.UISymbolButton();
             this.DonateButton = new Sunny.UI.UISymbolButton();
+            this.SetNameButton = new Sunny.UI.UISymbolButton();
             this.PagePanel.SuspendLayout();
             this.ControlsGroupBox.SuspendLayout();
             this.ColorPickerGroupBox.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // ControlsGroupBox
             // 
+            this.ControlsGroupBox.Controls.Add(this.SetNameButton);
             this.ControlsGroupBox.Controls.Add(this.ToggleButton);
             this.ControlsGroupBox.Controls.Add(this.TurnOffButton);
             this.ControlsGroupBox.Controls.Add(this.TurnOnButton);
@@ -93,10 +95,10 @@
             // 
             this.ToggleButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ToggleButton.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.ToggleButton.Location = new System.Drawing.Point(419, 35);
+            this.ToggleButton.Location = new System.Drawing.Point(337, 35);
             this.ToggleButton.Name = "ToggleButton";
             this.ToggleButton.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.ToggleButton.Size = new System.Drawing.Size(197, 35);
+            this.ToggleButton.Size = new System.Drawing.Size(156, 35);
             this.ToggleButton.Symbol = 61473;
             this.ToggleButton.TabIndex = 2;
             this.ToggleButton.Text = "Toggle";
@@ -106,10 +108,10 @@
             // 
             this.TurnOffButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TurnOffButton.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.TurnOffButton.Location = new System.Drawing.Point(216, 35);
+            this.TurnOffButton.Location = new System.Drawing.Point(175, 35);
             this.TurnOffButton.Name = "TurnOffButton";
             this.TurnOffButton.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.TurnOffButton.Size = new System.Drawing.Size(197, 35);
+            this.TurnOffButton.Size = new System.Drawing.Size(156, 35);
             this.TurnOffButton.Symbol = 61926;
             this.TurnOffButton.TabIndex = 1;
             this.TurnOffButton.Text = "Turn off";
@@ -122,7 +124,7 @@
             this.TurnOnButton.Location = new System.Drawing.Point(13, 35);
             this.TurnOnButton.Name = "TurnOnButton";
             this.TurnOnButton.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.TurnOnButton.Size = new System.Drawing.Size(197, 35);
+            this.TurnOnButton.Size = new System.Drawing.Size(156, 35);
             this.TurnOnButton.Symbol = 61457;
             this.TurnOnButton.TabIndex = 0;
             this.TurnOnButton.Text = "Turn on";
@@ -131,6 +133,7 @@
             // LightBulbIndicator
             // 
             this.LightBulbIndicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.LightBulbIndicator.CenterColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(248)))), ((int)(((byte)(232)))));
             this.LightBulbIndicator.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.LightBulbIndicator.Location = new System.Drawing.Point(619, 3);
             this.LightBulbIndicator.Name = "LightBulbIndicator";
@@ -455,6 +458,27 @@
             this.DonateButton.Text = "Donate";
             this.DonateButton.Click += new System.EventHandler(this.DonateButton_Click);
             // 
+            // SetNameButton
+            // 
+            this.SetNameButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SetNameButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.SetNameButton.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
+            this.SetNameButton.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
+            this.SetNameButton.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.SetNameButton.Location = new System.Drawing.Point(499, 35);
+            this.SetNameButton.Name = "SetNameButton";
+            this.SetNameButton.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.SetNameButton.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.SetNameButton.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(174)))), ((int)(((byte)(86)))));
+            this.SetNameButton.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(137)))), ((int)(((byte)(43)))));
+            this.SetNameButton.Size = new System.Drawing.Size(117, 35);
+            this.SetNameButton.Style = Sunny.UI.UIStyle.Orange;
+            this.SetNameButton.StyleCustomMode = true;
+            this.SetNameButton.Symbol = 108;
+            this.SetNameButton.TabIndex = 54;
+            this.SetNameButton.Text = "Set name";
+            this.SetNameButton.Click += new System.EventHandler(this.SetNameButton_Click);
+            // 
             // LightPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -508,5 +532,6 @@
         private Sunny.UI.UISymbolButton FeedbackButton;
         private Sunny.UI.UISymbolButton ReportButton;
         private Sunny.UI.UISymbolButton DonateButton;
+        private Sunny.UI.UISymbolButton SetNameButton;
     }
 }

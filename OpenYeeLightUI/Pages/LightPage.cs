@@ -80,7 +80,11 @@ namespace OpenYeeLightUI.Pages
                                           where ts.PageGuid == _deviceViewModel.PageGuid
                                           select ts).ToList();
 
-            subNodesList.FirstOrDefault(m => m.Tag == lightTab.FirstOrDefault()).Text = _deviceViewModel.ToString();
+            var node = subNodesList.FirstOrDefault(m => m.Tag == lightTab.FirstOrDefault());
+            if (node != null)
+            {
+                node.Text = _deviceViewModel.ToString();
+            }
         }
 
         private void BrightnessTrackBar_ValueChanged(object sender, EventArgs e)
@@ -216,6 +220,11 @@ namespace OpenYeeLightUI.Pages
         private void SaveProfileButton_Click(object sender, EventArgs e)
         {
             var profile = (Profile)ProfileComboBox.SelectedItem;
+            if (profile == null)
+            {
+                NotifyProfile(SaveProfileButton, "No profile selected", false);
+                return;
+            }
             var updatingProfile = _settings.Profiles.FirstOrDefault(m => m.Key == profile.Key);
             if (updatingProfile == null)
             {
@@ -236,6 +245,11 @@ namespace OpenYeeLightUI.Pages
         private void NewDeleteProfile_Click(object sender, EventArgs e)
         {
             var profile = (Profile)ProfileComboBox.SelectedItem;
+            if (profile == null)
+            {
+                NotifyProfile(NewDeleteProfile, "No profile selected", false);
+                return;
+            }
             var updatingProfile = _settings.Profiles.FirstOrDefault(m => m.Key == profile.Key);
             if (updatingProfile == null)
             {
@@ -263,6 +277,34 @@ namespace OpenYeeLightUI.Pages
             else
             {
                 SetTemperature();
+            }
+        }
+
+        private async void SetNameButton_Click(object sender, EventArgs e)
+        {
+            string value = "";
+            if (this.InputStringDialog(ref value, true, "Light name:"))
+            {
+                await Yeelight.SetNameAsync(_deviceViewModel.Device, value);
+                _deviceViewModel.Name = value;
+
+                _deviceViewModel.IsOn = _deviceViewModel.Device.Properties.FirstOrDefault(m => m.Key == "power").Value.ToString();
+                Text = _deviceViewModel.ToString();
+                MainForm mainForm = (MainForm)this.Parent.Parent.Parent;
+                TreeNode firstNode = mainForm.FormAside.Nodes[0]; // Lights
+                List<TreeNode> subNodesList = firstNode.Nodes.Cast<TreeNode>().ToList(); // Lights sub nodes to list.
+
+                List<NavMenuItem> lightTab = (from t in subNodesList
+                                              let ts = t.Tag as NavMenuItem
+                                              where ts.PageGuid == _deviceViewModel.PageGuid
+                                              select ts).ToList();
+
+                var node = subNodesList.FirstOrDefault(m => m.Tag == lightTab.FirstOrDefault());
+                if (node != null)
+                {
+                    node.Text = _deviceViewModel.ToString();
+                }
+                NotifyUser(SetNameButton, "Light name set");
             }
         }
     }
