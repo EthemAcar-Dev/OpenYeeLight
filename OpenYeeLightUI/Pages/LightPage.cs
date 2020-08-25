@@ -128,7 +128,7 @@ namespace OpenYeeLightUI.Pages
 
         private void SmoothnessTrackBar_ValueChanged(object sender, EventArgs e)
         {
-            SmoothnessProcentLabel.Text = $"{SmoothnessTrackBar.Value}0MS";
+            SmoothnessProcentLabel.Text = $"{SmoothnessTrackBar.Value}0ms";
         }
 
         private void FeedbackButton_Click(object sender, EventArgs e)
