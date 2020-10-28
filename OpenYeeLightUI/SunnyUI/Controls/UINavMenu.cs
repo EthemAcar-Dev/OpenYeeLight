@@ -17,7 +17,7 @@
  * 创建日期: 2020-01-01
  *
  * 2020-01-01: V2.2.0 增加文件说明
- * 2020-07-01: V2.2.6 解决引发事件所有结点重绘导致闪烁；解决滚轮失效问题。  
+ * 2020-07-01: V2.2.6 解决引发事件所有结点重绘导致闪烁；解决滚轮失效问题。
 ******************************************************************************/
 
 using System;
@@ -499,22 +499,29 @@ namespace Sunny.UI
 
             if (e.Node != null && e.Node.Nodes.Count > 0)
             {
-                if (e.Node.IsExpanded)
+                if (e.Button == MouseButtons.Left)
                 {
-                    e.Node.Collapse();
-                }
-                else
-                {
-                    e.Node.Expand();
-                }
+                    if (e.Node.IsExpanded)
+                    {
+                        e.Node.Collapse();
+                    }
+                    else
+                    {
+                        e.Node.Expand();
+                    }
 
-                if (SelectedNode != null && SelectedNode == e.Node && e.Node.IsExpanded && ExpandSelectFirst && e.Node.Nodes.Count > 0)
-                {
-                    SelectedNode = e.Node.Nodes[0];
+                    if (SelectedNode != null && SelectedNode == e.Node && e.Node.IsExpanded && ExpandSelectFirst && e.Node.Nodes.Count > 0)
+                    {
+                        SelectedNode = e.Node.Nodes[0];
+                    }
+                    else
+                    {
+                        SelectedNode = e.Node;
+                    }
                 }
                 else
                 {
-                    SelectedNode = e.Node;
+                    // do other stuff
                 }
             }
             else
@@ -804,6 +811,4 @@ namespace Sunny.UI
             return childNode;
         }
     }
-
-
 }

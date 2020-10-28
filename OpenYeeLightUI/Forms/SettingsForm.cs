@@ -36,6 +36,7 @@ namespace OpenYeeLightUI.Forms
 
                 _appSettings.MulticastLookup = MulticastEnabled.Checked;
                 _appSettings.AskForUpdates = AskForUpdatesEnabled.Checked;
+                _appSettings.Base64 = Base64Enabled.Checked;
 
                 return _appSettings;
             }
@@ -45,6 +46,7 @@ namespace OpenYeeLightUI.Forms
                 _appSettings = value;
                 _appSettings.MulticastLookup = value.MulticastLookup;
                 _appSettings.AskForUpdates = value.AskForUpdates;
+                _appSettings.Base64 = value.Base64;
 
                 if (value.MulticastLookup)
                 {
@@ -62,6 +64,15 @@ namespace OpenYeeLightUI.Forms
                 else
                 {
                     AskForUpdatesDisabled.Checked = !value.AskForUpdates;
+                }
+
+                if (value.Base64)
+                {
+                    Base64Enabled.Checked = value.Base64;
+                }
+                else
+                {
+                    Base64Disabled.Checked = !value.Base64;
                 }
             }
         }

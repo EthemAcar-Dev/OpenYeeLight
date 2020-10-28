@@ -22,8 +22,11 @@ namespace OpenYeeLightUI.Pages
         public LightPage(DeviceViewModel deviceViewModel)
         {
             InitializeComponent();
+
             _deviceViewModel = deviceViewModel;
+            _deviceViewModel.Name = _settings.AppSettings.Base64 && Base64Util.IsBase64(_deviceViewModel.Name) ? Base64Util.Base64Decode(_deviceViewModel.Name) : _deviceViewModel.Name;
             Text = _deviceViewModel.ToString();
+
             LightBulbIndicator.State = _deviceViewModel.IsOn == "on" ? UILightState.On : UILightState.Off;
         }
 
@@ -285,11 +288,20 @@ namespace OpenYeeLightUI.Pages
             string value = "";
             if (this.InputStringDialog(ref value, true, "Light name:"))
             {
+                if (_settings.AppSettings.Base64)
+                {
+                    value = Base64Util.Base64Encode(value);
+                }
                 await Yeelight.SetNameAsync(_deviceViewModel.Device, value);
+
                 _deviceViewModel.Name = value;
 
                 _deviceViewModel.IsOn = _deviceViewModel.Device.Properties.FirstOrDefault(m => m.Key == "power").Value.ToString();
+
+                _deviceViewModel.Name = _settings.AppSettings.Base64 && Base64Util.IsBase64(_deviceViewModel.Name) ? Base64Util.Base64Decode(_deviceViewModel.Name) : _deviceViewModel.Name;
+
                 Text = _deviceViewModel.ToString();
+
                 MainForm mainForm = (MainForm)this.Parent.Parent.Parent;
                 TreeNode firstNode = mainForm.FormAside.Nodes[0]; // Lights
                 List<TreeNode> subNodesList = firstNode.Nodes.Cast<TreeNode>().ToList(); // Lights sub nodes to list.

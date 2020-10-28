@@ -34,11 +34,14 @@
             this.AskForUpdatesDisabled = new Sunny.UI.UIRadioButton();
             this.AskForUpdatesEnabled = new Sunny.UI.UIRadioButton();
             this.AskForUpdatesLabel = new Sunny.UI.UILabel();
+            this.Base64Disabled = new Sunny.UI.UIRadioButton();
+            this.Base64Enabled = new Sunny.UI.UIRadioButton();
+            this.Base64Label = new Sunny.UI.UILabel();
             this.SuspendLayout();
             // 
             // pnlBtm
             // 
-            this.pnlBtm.Location = new System.Drawing.Point(1, 136);
+            this.pnlBtm.Location = new System.Drawing.Point(1, 157);
             this.pnlBtm.Size = new System.Drawing.Size(375, 55);
             // 
             // MulticastDisabled
@@ -80,7 +83,7 @@
             this.AskForUpdatesDisabled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AskForUpdatesDisabled.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.AskForUpdatesDisabled.GroupIndex = 1;
-            this.AskForUpdatesDisabled.Location = new System.Drawing.Point(261, 87);
+            this.AskForUpdatesDisabled.Location = new System.Drawing.Point(261, 85);
             this.AskForUpdatesDisabled.Name = "AskForUpdatesDisabled";
             this.AskForUpdatesDisabled.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.AskForUpdatesDisabled.Size = new System.Drawing.Size(100, 29);
@@ -93,7 +96,7 @@
             this.AskForUpdatesEnabled.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AskForUpdatesEnabled.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.AskForUpdatesEnabled.GroupIndex = 1;
-            this.AskForUpdatesEnabled.Location = new System.Drawing.Point(160, 87);
+            this.AskForUpdatesEnabled.Location = new System.Drawing.Point(160, 85);
             this.AskForUpdatesEnabled.Name = "AskForUpdatesEnabled";
             this.AskForUpdatesEnabled.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.AskForUpdatesEnabled.Size = new System.Drawing.Size(95, 29);
@@ -104,18 +107,57 @@
             // 
             this.AskForUpdatesLabel.AutoSize = true;
             this.AskForUpdatesLabel.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.AskForUpdatesLabel.Location = new System.Drawing.Point(11, 87);
+            this.AskForUpdatesLabel.Location = new System.Drawing.Point(11, 85);
             this.AskForUpdatesLabel.Name = "AskForUpdatesLabel";
             this.AskForUpdatesLabel.Size = new System.Drawing.Size(134, 21);
             this.AskForUpdatesLabel.TabIndex = 12;
             this.AskForUpdatesLabel.Text = "Ask for updates:";
             this.AskForUpdatesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // Base64Disabled
+            // 
+            this.Base64Disabled.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Base64Disabled.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.Base64Disabled.GroupIndex = 2;
+            this.Base64Disabled.Location = new System.Drawing.Point(261, 122);
+            this.Base64Disabled.Name = "Base64Disabled";
+            this.Base64Disabled.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.Base64Disabled.Size = new System.Drawing.Size(100, 29);
+            this.Base64Disabled.TabIndex = 14;
+            this.Base64Disabled.Text = "Disabled";
+            // 
+            // Base64Enabled
+            // 
+            this.Base64Enabled.Checked = true;
+            this.Base64Enabled.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Base64Enabled.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.Base64Enabled.GroupIndex = 2;
+            this.Base64Enabled.Location = new System.Drawing.Point(160, 122);
+            this.Base64Enabled.Name = "Base64Enabled";
+            this.Base64Enabled.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.Base64Enabled.Size = new System.Drawing.Size(95, 29);
+            this.Base64Enabled.TabIndex = 13;
+            this.Base64Enabled.Text = "Enabled";
+            // 
+            // Base64Label
+            // 
+            this.Base64Label.AutoSize = true;
+            this.Base64Label.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.Base64Label.Location = new System.Drawing.Point(11, 122);
+            this.Base64Label.Name = "Base64Label";
+            this.Base64Label.Size = new System.Drawing.Size(122, 21);
+            this.Base64Label.TabIndex = 15;
+            this.Base64Label.Text = "Base64 names:";
+            this.Base64Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 194);
+            this.ClientSize = new System.Drawing.Size(377, 215);
+            this.Controls.Add(this.Base64Disabled);
+            this.Controls.Add(this.Base64Enabled);
+            this.Controls.Add(this.Base64Label);
             this.Controls.Add(this.AskForUpdatesDisabled);
             this.Controls.Add(this.AskForUpdatesEnabled);
             this.Controls.Add(this.AskForUpdatesLabel);
@@ -132,6 +174,9 @@
             this.Controls.SetChildIndex(this.AskForUpdatesLabel, 0);
             this.Controls.SetChildIndex(this.AskForUpdatesEnabled, 0);
             this.Controls.SetChildIndex(this.AskForUpdatesDisabled, 0);
+            this.Controls.SetChildIndex(this.Base64Label, 0);
+            this.Controls.SetChildIndex(this.Base64Enabled, 0);
+            this.Controls.SetChildIndex(this.Base64Disabled, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +190,8 @@
         private Sunny.UI.UIRadioButton AskForUpdatesDisabled;
         private Sunny.UI.UIRadioButton AskForUpdatesEnabled;
         private Sunny.UI.UILabel AskForUpdatesLabel;
+        private Sunny.UI.UIRadioButton Base64Disabled;
+        private Sunny.UI.UIRadioButton Base64Enabled;
+        private Sunny.UI.UILabel Base64Label;
     }
 }

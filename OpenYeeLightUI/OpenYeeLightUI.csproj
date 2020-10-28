@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AppSettings.cs" />
+    <Compile Include="Classes\Base64Util.cs" />
     <Compile Include="Classes\DeviceViewModel.cs" />
     <Compile Include="Classes\LinqExtension.cs" />
     <Compile Include="Classes\SingleInstance.cs" />

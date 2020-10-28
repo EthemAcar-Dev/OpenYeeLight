@@ -10,5 +10,7 @@ namespace OpenYeeLightUI.Classes
     {
         public bool MulticastLookup { get; set; } = false;
         public bool AskForUpdates { get; set; } = true;
+
+        public bool Base64 { get; set; } = false;
     }
 }
