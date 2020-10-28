@@ -164,13 +164,18 @@ namespace OpenYeeLightUI.Pages
             _isColour = true;
         }
 
-        private void LightPage_Load(object sender, EventArgs e)
+        private void SetInformationTextBox()
         {
-            InformationTextBox.Text = $"Name : {_deviceViewModel.Device.Name}{Environment.NewLine}" +
+            InformationTextBox.Text = $"Name : {_deviceViewModel.Name}{Environment.NewLine}" +
                                       $"Hostname : {_deviceViewModel.Device.Hostname}{Environment.NewLine}" +
                                       $"ID : {_deviceViewModel.Device.Id}{Environment.NewLine}" +
                                       $"Firmware version : {_deviceViewModel.Device.FirmwareVersion}{Environment.NewLine}" +
                                       $"Model : {_deviceViewModel.Device.Model}";
+        }
+
+        private void LightPage_Load(object sender, EventArgs e)
+        {
+            SetInformationTextBox();
 
             BrightnessTrackBar.Value = int.Parse(_deviceViewModel.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.bright.ToString()).Value.ToString());
             TemperatureTrackBar.Value = int.Parse(_deviceViewModel.Device.Properties.FirstOrDefault(m => m.Key == YeelightAPI.Models.PROPERTIES.ct.ToString()).Value.ToString());
@@ -316,6 +321,8 @@ namespace OpenYeeLightUI.Pages
                 {
                     node.Text = _deviceViewModel.ToString();
                 }
+
+                SetInformationTextBox();
                 NotifyUser(SetNameButton, "Light name set");
             }
         }
